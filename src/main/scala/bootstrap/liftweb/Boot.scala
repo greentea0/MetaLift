@@ -13,7 +13,28 @@ import mapper._
 
 import code.model._
 import net.liftmodules.JQueryModule
+import java.sql.Connection
+import java.sql.DriverManager
 
+object DBVendor extends ConnectionManager with Logger {
+  def newConnection(name: ConnectionIdentifier): Box[Connection] = {
+    try {
+      Class.forName("com.mysql.jdbc.Driver")
+     
+      val jdbcurl= (Props.get("db.url") openOr "") +
+        "?user=" + (Props.get("db.user") openOr "") +
+        "&password=" + (Props.get("db.password") openOr "") +
+        "&" + Props.get("additionalurlparam").openOr("")
+      debug(jdbcurl)
+
+      val dm = DriverManager.getConnection(jdbcurl)
+      Full(dm)
+    } catch {
+      case e : Exception => e.printStackTrace; Empty
+    }
+  }
+  def releaseConnection(conn: Connection) {conn.close}
+}
 
 /**
  * A class that's instantiated early and run.  It allows the application
@@ -30,7 +51,7 @@ class Boot {
 
       LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
 
-      DB.defineConnectionManager(DefaultConnectionIdentifier, vendor)
+      DB.defineConnectionManager(DefaultConnectionIdentifier, DBVendor)
     }
 
     // Use Lift's Mapper ORM to populate the database

@@ -1,3 +1,8 @@
 container:start
 exit
 eclipse
+container:start
+exit
+create-pom
+make-pom
+container:start
