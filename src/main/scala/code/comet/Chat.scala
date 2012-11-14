@@ -27,8 +27,6 @@ class Chat extends CometActor with CometListener {
    */
   override def lowPriority = {
     case v: Vector[String] => 
-      var msg = Message.create.dateSent( MappedDateTime.NOW)
-      
       msgs = v; reRender()
   }
   /**
