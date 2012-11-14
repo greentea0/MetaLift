@@ -4,15 +4,17 @@ import net.liftweb._
 import http._
 import util._
 import Helpers._
-import java.sql.Date;
+import java.sql.Date
+import code.model._
 import code.model.Message
+import java.util.Calendar
 /**
  * The screen real estate on the browser will be represented
  * by this component.  When the component changes on the server
  * the changes are automatically reflected in the browser.
  */
 class Chat extends CometActor with CometListener {
-  private var msgs: Vector[String] = Vector() // private state
+  private var msgs: List[String] = List() // private state
   /**
    * When the component is instantiated, register as
    * a listener with the ChatServer
@@ -26,8 +28,16 @@ class Chat extends CometActor with CometListener {
    * cause changes to be sent to the browser.
    */
   override def lowPriority = {
-    case v: Vector[String] => 
-      msgs = v; reRender()
+    case v: List[String] => 
+      var msg = Message.create
+      msg.payload.:=(v.last)
+      msg.dateSent.:=( Calendar.getInstance().getTime())
+      msg.conversationID.:=(1)
+      msg.sender.:=(User.currentUser.open_!.id)
+      msg.save
+      val listOfMessages = Message.findAll
+      msgs = listOfMessages.map((i: Message) => i.payload.asString )
+      reRender()
   }
   /**
    * Put the messages in the li elements and clear
