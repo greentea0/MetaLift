@@ -9,6 +9,8 @@ import net.liftweb.common._
  * The singleton that has methods for accessing the database
  */
 object User extends User with MetaMegaProtoUser[User] {
+  
+
   override def dbTableName = "users" // define the DB table name
   override def screenWrap = Full(<lift:surround with="default" at="content">
 			       <lift:bind /></lift:surround>)
@@ -18,6 +20,8 @@ object User extends User with MetaMegaProtoUser[User] {
 
   // comment this line out to require email validations
   override def skipEmailValidation = true
+  
+  
 }
 
 /**
@@ -26,6 +30,10 @@ object User extends User with MetaMegaProtoUser[User] {
 class User extends MegaProtoUser[User] {
   def getSingleton = User // what's the "meta" server
 
+  object friendsList extends MappedLongForeignKey( this, FriendsList )
+  object chatHistory extends MappedLongForeignKey( this, History )
+  object dateRegistered extends MappedDateTime( this )
+  
   // define an additional field for a personal essay
   object textArea extends MappedTextarea(this, 2048) {
     override def textareaRows  = 10
