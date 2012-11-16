@@ -8,6 +8,8 @@ import java.sql.Date
 import code.model._
 import code.model.Message
 import java.util.Calendar
+import net.liftweb.mapper._
+import net.liftweb.mapper.MappedLongIndex
 /**
  * The screen real estate on the browser will be represented
  * by this component.  When the component changes on the server
@@ -28,18 +30,24 @@ class Chat extends CometActor with CometListener {
    * cause changes to be sent to the browser.
    */
   override def lowPriority = {
-    case v: List[String] => 
-      var msg = Message.create
-      msg.payload.:=(v.last)
-      msg.dateSent.:=( Calendar.getInstance().getTime())
-      msg.conversationID.:=(1)
-      msg.sender.:=(User.currentUser.open_!.id)
-      msg.save
-      val listOfMessages = Message.findAll
-      msgs = listOfMessages.map((i: Message) => i.payload.asString )
+    case v: Vector[String] => 
+      if ( !v.last.isEmpty()){
+	      
+	      //i.sender.obj.open_!.firstName + " " + i.sender.obj.open_!.lastName +" -  " +  
+	      val messages = Message.findAll( PreCache(Message.sender))
+	      
+	      // (messages.length > 0) must beTrue
+
+          for (t <- messages)
+        	  t.sender.cached_?
+          
+	       msgs = messages.map(( m : Message ) => m.sender.obj.openOrThrowException("Cant open this user!").firstName.get  +" : " +m.payload.get)
+	      //msgs = messages.map((m: Message) =>  m.payload.asString.length() + "")
+      }
+      //.map((m: Message) =>  m.sender.openOrThrowException("user not available").firstNameDisplayName+" "+ m.payload.dbSelectString)
       reRender()
   }
-  /**
+  /**s
    * Put the messages in the li elements and clear
    * any elements that have the clearable class.
    */

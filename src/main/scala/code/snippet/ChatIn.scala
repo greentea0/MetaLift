@@ -6,6 +6,9 @@ import js._
 import JsCmds._
 import JE._
 import comet.ChatServer
+import code.model.Message
+import java.util.Calendar
+import code.model.User
 /**
  * A snippet transforms input to output... it transforms
  * templates to dynamic content.  Lift's templates can invoke
@@ -26,6 +29,17 @@ object ChatIn {
    * clears the input.
    */
   def render = SHtml.onSubmit(s => {
+    
+    var msg = Message.create
+	      msg.payload.:=(s)
+	      msg.dateSent.:=( Calendar.getInstance().getTime())
+	      msg.conversationID.:=(1)
+	      msg.sender.:= (User.
+	          currentUser.
+	          	openOrThrowException(
+	          	    "This snippet is used on pages where the user is logged in").id)
+	      msg.save
+	      
     ChatServer ! s
     SetValById("chat_in", "")
   })
