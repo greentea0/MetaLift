@@ -33,9 +33,14 @@ class Chat extends CometActor with CometListener {
     case v: Vector[String] => 
       if ( !v.last.isEmpty()){
 	      val messages = Message.findAll( PreCache(Message.sender))
-	       msgs = messages.map(( m : Message ) => m.sender.obj.
-	           openOrThrowException("Cant open this user!").
-	           firstName.get  +" : " +m.payload.get)
+	       msgs = messages.map(( m : Message ) => 
+	         
+	           m.sender.obj.openOrThrowException("Cant open this user!").
+	           firstName.get  
+	           +" " + 
+	           m.sender.obj.openOrThrowException("Cant open this user!").
+	           lastName.get
+	           +" : "+m.payload.get)
       }
       reRender()
   }

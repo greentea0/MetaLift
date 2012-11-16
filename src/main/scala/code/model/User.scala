@@ -16,7 +16,7 @@ object User extends User with MetaMegaProtoUser[User] {
 			       <lift:bind /></lift:surround>)
   // define the order fields will appear in forms and output
   override def fieldOrder = List(id, firstName, lastName, email,
-  locale, timezone, password, textArea)
+  locale, timezone, password, nickname, textArea)
 
   // comment this line out to require email validations
   override def skipEmailValidation = true
@@ -33,6 +33,10 @@ class User extends MegaProtoUser[User] {
   object friendsList extends MappedLongForeignKey( this, FriendsList )
   object chatHistory extends MappedLongForeignKey( this, History )
   object dateRegistered extends MappedDateTime( this )
+  object dateLoggedOn extends MappedDateTime( this )
+  object dateLoggedOff extends MappedDateTime( this )
+  object status extends MappedInt( this )
+  object nickname extends MappedString( this, 140 )
   
   // define an additional field for a personal essay
   object textArea extends MappedTextarea(this, 2048) {
