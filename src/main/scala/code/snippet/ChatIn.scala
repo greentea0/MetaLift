@@ -31,6 +31,7 @@ object ChatIn {
   def render = SHtml.onSubmit(s => {
     
     var msg = Message.create
+     if ( !s.trim.isEmpty() ){
 	      msg.payload.:=(s)
 	      msg.dateSent.:=( Calendar.getInstance().getTime())
 	      msg.conversationID.:=(1)
@@ -40,7 +41,8 @@ object ChatIn {
 	          	    "This snippet is used on pages where the user is logged in").id)
 	      msg.save
 	      
-    ChatServer ! s
+	      ChatServer ! s
+  	}
     SetValById("chat_in", "")
   })
 }

@@ -32,19 +32,11 @@ class Chat extends CometActor with CometListener {
   override def lowPriority = {
     case v: Vector[String] => 
       if ( !v.last.isEmpty()){
-	      
-	      //i.sender.obj.open_!.firstName + " " + i.sender.obj.open_!.lastName +" -  " +  
 	      val messages = Message.findAll( PreCache(Message.sender))
-	      
-	      // (messages.length > 0) must beTrue
-
-          for (t <- messages)
-        	  t.sender.cached_?
-          
-	       msgs = messages.map(( m : Message ) => m.sender.obj.openOrThrowException("Cant open this user!").firstName.get  +" : " +m.payload.get)
-	      //msgs = messages.map((m: Message) =>  m.payload.asString.length() + "")
+	       msgs = messages.map(( m : Message ) => m.sender.obj.
+	           openOrThrowException("Cant open this user!").
+	           firstName.get  +" : " +m.payload.get)
       }
-      //.map((m: Message) =>  m.sender.openOrThrowException("user not available").firstNameDisplayName+" "+ m.payload.dbSelectString)
       reRender()
   }
   /**s
