@@ -1,0 +1,120 @@
+body
+{
+	padding:0px;
+	background-image:url('background.jpg');
+}
+
+.sidebarMetaLift{
+	float:right;
+
+	background-color:rgba(255,255,255,0.5);
+	border-radius: 5px;
+	margin-top: 25px;
+	margin-left: 4px;
+	margin-bottom:10px;
+	margin-right:auto;
+    padding:4px;
+
+    min-width:100px;
+    width: 21%;
+    height : 80%;
+}
+.chatbox
+{
+	margin-top: 25px;
+	margin-right:4px;
+	float:left;
+	background-color:rgba(255,255,255,0.5);
+	border-radius: 5px;
+    height: 80%;
+    width: 500px;
+    min-width: 300px;
+    padding:4px;
+
+
+}
+
+.chatinputfield
+{
+	border:none;
+	font-size:20px;
+}
+
+.friendslist
+{
+	margin-top:4px;
+	border-radius: 5px;
+	width : auto;
+	height : 45%;
+	background-color:white;
+}
+
+.conversations
+{
+
+	width : auto;
+	height : 45%;
+	border-radius: 5px;
+	background-color:white;
+	padding-top:20px;
+}
+
+.chatoutput
+{
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	height:310px;
+	width:auto;
+	min-height:80px;
+	background-color:rgba(255,255,255,1);
+	margin-bottom:5px;
+	padding-top:5px;
+	margin-bottom:10;
+	overflow:scroll;
+}
+.chatinput
+{
+	border-radius: 10px;
+	width:auto;
+	height:45%;
+	min-height:50px;
+	background-color:rgba(255,255,255,1);
+}
+
+.menu
+{
+	background-color:black;
+	width : auto;
+	height: 50px;
+	margin:0px;
+	padding:0px;
+	color:white;
+}
+
+.title
+{
+	margin-top: 2px;
+	padding-top: 3px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color:rgba(255,255,255,1);
+	padding-left:4px;
+	font-weight:bold;
+	font-weight:20;
+}
+ul
+{
+    list-style-type: none;
+    overflow:auto;
+}
+
+li {
+	
+}
+
+hr 
+{
+  margin-left:4px;
+  width: 80%;
+  color: black;
+}
