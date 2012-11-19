@@ -23,6 +23,8 @@ body
 {
 	margin-top: 25px;
 	margin-right:4px;
+	margin:left:auto;
+	margin:right:auto;
 	float:left;
 	background-color:rgba(255,255,255,0.5);
 	border-radius: 5px;
@@ -67,8 +69,8 @@ body
 
 .chatoutput
 {
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 	height:310px;
 	width:auto;
 	min-height:80px;
@@ -80,7 +82,7 @@ body
 }
 .chatinput
 {
-	border-radius: 10px;
+	border-radius: 5px;
 	width:auto;
 	height:45%;
 	min-height:50px;
@@ -101,8 +103,8 @@ body
 {
 	margin-top: 2px;
 	padding-top: 3px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	background-color:rgba(255,255,255,1);
 	padding-left:4px;
 	font-weight:bold;
@@ -123,4 +125,45 @@ hr
   margin-left:4px;
   width: 80%;
   color: black;
+}
+
+.centercontent
+{
+	margin:right:auto;
+	margin:left:auto;
+}
+
+
+
+.sidebar
+{
+  border:none;
+padding:0;
+margin:0;
+color:#fff;
+font-family: arial, helvetica, sans-serif;
+white-space:nowrap;
+list-style-type:none;
+width:100%;
+background-color:#383B36;
+}
+.sidebar li {display:inline;}
+.sidebar li a
+{
+padding:0.2em 1em;
+
+color:white;
+text-decoration:none;
+float:left;
+border:1px solid #000;
+}
+.sidebar li a:hover
+{
+background:#08c;
+color:#fff;
+}
+
+#main 
+{
+	margin-left:0px;
 }
