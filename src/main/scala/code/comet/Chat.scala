@@ -32,9 +32,12 @@ class Chat extends CometActor with CometListener {
   override def lowPriority = {
     case v: Vector[String] => 
       if ( !v.last.isEmpty()){
-	      val messages = Message.findAll( PreCache(Message.sender))
-	       msgs = messages.map(( m : Message ) => 
-	         
+          // grab all the message sfor the current user for their current conversation
+	      val messages = Message.findAll( By( Message.conversationID,
+	          User.currentUser.openOrThrowException("Unable to get user").currentConveration),PreCache(Message.sender))
+	      
+	          // put those messages into the chat window
+	          msgs = messages.map(( m : Message ) =>
 	           m.sender.obj.openOrThrowException("Cant open this user!").
 	           firstName.get  
 	           +" " + 
