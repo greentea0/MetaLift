@@ -2,6 +2,7 @@ html{
 	margin:0px;
 	padding:0px;
 }
+
 body
 {
 	maring:0px;
@@ -9,9 +10,9 @@ body
 	background-image:url('background.jpg');
 }
 
+/*friends and conversation boxes*/
 .sidebarMetaLift{
 	float:right;
-
 	background-color:rgba(255,255,255,0.5);
 	border-radius: 5px;
 	margin-top: 25px;
@@ -19,11 +20,12 @@ body
 	margin-bottom:10px;
 	margin-right:auto;
     padding:4px;
-
     min-width:100px;
     width: 21%;
     height : 80%;
 }
+
+/*around the output and input chat*/
 .chatbox
 {
 	margin-top: 25px;
@@ -37,9 +39,30 @@ body
     width: 500px;
     min-width: 300px;
     padding:4px;
-
-
 }
+
+.chatoutput
+{
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	height:310px;
+	width:auto;
+	min-height:80px;
+	background-color:rgba(255,255,255,1);
+	margin-bottom:5px;
+	padding-top:5px;
+	overflow:scroll;
+}
+
+.chatinput
+{
+	border-radius: 5px;
+	width:auto;
+	height:45%;
+	min-height:50px;
+	background-color:rgba(255,255,255,1);
+}
+
 
 .chatinputfield
 {
@@ -64,42 +87,12 @@ body
 
 .conversations
 {
-
 	width : auto;
 	height : 45%;
 	border-radius: 5px;
 	background-color:white;
 	padding-top:20px;
 }
-
-.chatoutput
-{
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	height:310px;
-	width:auto;
-	min-height:80px;
-	background-color:rgba(255,255,255,1);
-	margin-bottom:5px;
-	padding-top:5px;
-	overflow:scroll;
-}
-.chatinput
-{
-	border-radius: 5px;
-	width:auto;
-	height:45%;
-	min-height:50px;
-	background-color:rgba(255,255,255,1);
-}
-
-table {
-	display: table;
-	border-radius: 5px;	
-	border-color: gray;
-	background-color:rgba(255,255,255,1);
-}
-
 
 .menu
 {
@@ -130,14 +123,13 @@ ul
     list-style-type: none;
     overflow:auto;
     padding:0px;
-    
 }
 
 hr 
 {
-  margin-left:4px;
-  width: 80%;
-  color: black;
+	margin-left:4px;
+	width: 80%;
+	color: black;
 }
 
 .centercontent
@@ -150,31 +142,32 @@ hr
 /*banner*/
 .sidebar 
 {
-
-padding:0;
-margin-top:0px;
-margin:0;
-color:#fff;
-font-family: arial, helvetica, sans-serif;
-white-space:nowrap;
-list-style-type:none;
-width:100%;
-background-color:#383B36;
+	padding:0;
+	margin-top:0px;
+	margin:0;
+	color:#fff;
+	font-family: arial, helvetica, sans-serif;
+	white-space:nowrap;
+	list-style-type:none;
+	width:100%;
+	background-color:#383B36;
 }
-.sidebar li {display:inline;}
+.sidebar li 
+{
+	display:inline;
+}
 .sidebar li a
 {
-padding:0.2em 1em;
-
-color:white;
-text-decoration:none;
-float:left;
-border:1px solid #000;
+	padding:0.2em 1em;
+	color:white;
+	text-decoration:none;
+	float:left;
+	border:1px solid #000;
 }
 .sidebar li a:hover
 {
-background:#08c;
-color:#fff;
+	background:#08c;
+	color:#fff;
 }
 
 #main 
@@ -182,12 +175,14 @@ color:#fff;
 	margin-left:0px;
 }
 
+/*the box around form(default)*/
 .span-17
 {
-width: 670px;
-padding-left: 350px;
+	width: 670px;
+	padding-left: 350px;
 }
 
+/*login and sign up form*/
 form{
 	margin-top:25px;
 	background-color:rgba(255,255,255,0.5);
@@ -196,20 +191,22 @@ form{
 	padding-bottom:4px;	
 	width:100%;
 }
-/*table*/
+
+/*table(login + signup)*/
 table{
+	display: table;
 	margin-left:4px;
 	background-color:rgba(255,255,255,1);
 	margin-bottom:5px;
 	overflow:scroll;
+	border-color: gray;
 	width:98%;
 }
 
-/*element in table*/
+/*elements in a table*/
 td{
 	background-color:white;
 }
-
 
 /*friends list and conversations list*/
 .sideList{
