@@ -38,7 +38,7 @@ object ChatIn {
 	      msg.sender.:= (User.
 	          currentUser.
 	          	openOrThrowException(
-	          	    "This snippet is used on pages where the user is logged in").id)
+	          	    "This snippet is used on pages where the user is logged in, you are attempting to write a message but the user does not exist").id)
 	      msg.save
 	      
 	      ChatServer ! s
