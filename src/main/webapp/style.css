@@ -5,7 +5,7 @@ html{
 
 body
 {
-	maring:0px;
+	margin:0px;
 	padding:0px;
 	background-image:url('background.jpg');
 }
@@ -117,9 +117,6 @@ body
 }
 ul
 {
-	margin-left: auto;
-	margin-right: auto;
-	width:30%;
     list-style-type: none;
     overflow:auto;
     padding:0px;
