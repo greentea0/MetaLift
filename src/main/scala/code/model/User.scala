@@ -4,6 +4,7 @@ package model
 import net.liftweb.mapper._
 import net.liftweb.util._
 import net.liftweb.common._
+import net.liftweb.sitemap.Loc._
 
 /**
  * The singleton that has methods for accessing the database
@@ -20,6 +21,11 @@ object User extends User with MetaMegaProtoUser[User] {
 
   // comment this line out to require email validations
   override def skipEmailValidation = true
+  
+  override def homePage = if ( loggedIn_? ) {
+    "index"
+  } else { "/chat" }
+
   
   
 }
