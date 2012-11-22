@@ -67,7 +67,8 @@ class Boot {
       Menu.i("Home") / "index" >> User.AddUserMenusAfter // the simple way to declare a menu
 
        ,Menu(Loc("Chat", Link(List("chat"), true, "/chat"), 
-         "ChatMine", Hidden))
+         "ChatMine", Hidden)),
+		Menu.i("Conversation") / "conversation"
     )
     def sitemapMutators = User.sitemapMutator
 

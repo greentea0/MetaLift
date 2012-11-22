@@ -3,37 +3,53 @@
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
        
-    <title>Home</title>
+    <title>Conversation</title>
   </head>
   <body class="lift:content_id=main">
+  
     <div id="main" class="lift:surround?with=default;at=content">
-
+		
+		<div class="createBox">
+			<div class="innerBox">
+				<div class="title">Create a conversation</div>
+		
+				<div class="addF">
+					<form class="converForm" method="post" action="">
+						<table>
+							<tbody>
+								<tr>
+									<td>Add friends to conversation</td>
+								</tr>
+								<tr>
+									<td class="">1<!--list of friends--></td>
+									<td class="check">
+										<input type="checkBox" name="friendList" value="" class=""><!--list of friends-->
+									</td>
+								</tr>
+								<tr>
+									<td class="">2<!--list of friends--></td>
+									<td class="check">
+										<input type="checkBox" name="friendList" value="" class=""><!--list of friends-->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="info">
+					<div class="topic">
+						<p>Enter your topic here:</p>
+						<input type="text" id="" name="topicName" value="" maxlength=""><br />
+					</div>
+					<div class="create">
+						<button type="submit" title="create" value="create">Create</button>
+					<!--summit button-->
+					</div>
+				</div>
+			</div>	
+		</div>
       
-      <div class="chatbox">
-      
-     <!-- the behavior of the div -->
-     <div class="centercontent">
-        <div class="lift:comet?type=Chat">
-            <div class="title">General Lobby</div>
-            
-	        <div class="chatoutput">
-	              <ul class="sideList"><!--added sideList-->
-	                  <li>A message</li>
-	                  <li class="clearable">Another message</li>
-	                  <li class="clearable">A third message</li>
-	              </ul>
-	       	</div>
-       	  </div>
-         
-        <div>
-          <form class="lift:form.ajax?class=chatinput">
-            <input class="lift:ChatIn chatinputfield" id="chat_in"/>
-           
-             <input type="submit" value="Send"/>
-          </form>
-        </div>
-      </div>
-      </div>
+     
       <div class="sidebarMetaLift">
         <div class="conversations">
           <div class="title">Friends</div>
@@ -61,6 +77,7 @@
         </div>
       
       </div>
+
     </div>
   </body>
 </html>
