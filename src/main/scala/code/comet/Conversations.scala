@@ -16,13 +16,13 @@ import net.liftweb.http.js.JE
  * by this component.  When the component changes on the server
  * the changes are automatically reflected in the browser.
  */
-class Chat extends CometActor with CometListener {
-  private var msgs = List("") // private state
+class Conversations extends CometActor with CometListener {
+  private var convos: List[String] = List() // private state
   /**
    * When the component is instantiated, register as
-   * a listener with the ChatServer
+   * a listener with the ConvoServer
    */
-  def registerWith = ChatServer
+  def registerWith = ConvoServer
   /**
    * The CometActor is an Actor, so it processes messages.
    * In this case, we're listening for Vector[String],
@@ -31,15 +31,15 @@ class Chat extends CometActor with CometListener {
    * cause changes to be sent to the browser.
    */
   override def lowPriority = {
-    case v: List[String] => 
+    case v: Vector[String] => 
       if ( !v.last.isEmpty()){
-          // grab all the messages for the current user for their current conversation
-          val currentConversation = (User.currentUser.openOrThrowException("Unable to get user when I am trying to pull for all the messages!").currentConversation.get)
-	      val conversation: Conversation = Conversation.findAll(By(Conversation.id, currentConversation)).head
-	      val messages: List[Message] = conversation.messages.toList
+          // grab all the message sfor the current user for their current conversation
+		  val conversations = Conversation.findAll(In(Conversation.id, History.user, By(History.user,
+	          User.currentUser.openOrThrowException("Unable to get user when I am trying to pull for all the messages!").id)))
+	      
 	          // put those messages into the chat window
-	          msgs = messages.map(( m : Message ) =>
-	          m.sender.obj.get.niceName + " : " + m.payload.get)
+	           convos = conversations.map(( c : Conversation ) =>
+	           c.topic.get)
       }
       reRender()
   }
@@ -47,5 +47,5 @@ class Chat extends CometActor with CometListener {
    * Put the messages in the li elements and clear
    * any elements that have the clearable class.
    */
-  def render = "li *" #> msgs & ClearClearable
+  def render = "li *" #> convos & ClearClearable
 }

@@ -32,24 +32,27 @@
 					</div>
 				</div>
 				<div class="info">
-					<form class="lift:form.ajax">
-						<div class="topic">
-							<p>Enter your topic here:</p>
-							<input type="text" id="" name="topicName" value="" maxlength=""><br />
+				
+						<div>
+							<p>Enter a topic for this conversation:</p>
+							<form class="lift:form.ajax">
+								<input class="lift:TopicIn" id="topic_in"/>
+								<input type="submit" value="Create"/>
+							</form>
 						</div>
-						<div class="selectedF">
+						<div class="selectedFriends">
+						<p>Friends that will be added to this conversation:</p>
 							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
+								<li>User 1</li>
+								<li>User 2</li>
+								<li>User 3</li>
+								<li>User 4</li>
 							</ul>
 						</div>
-						<div class="create">
-							<button type="submit" title="create" value="create">Create</button>
-						<!--summit button-->
+						<div class="Create">
+							
 						</div>
-					</form>
+					
 				</div>
 			</div>	
 		</div>
@@ -68,18 +71,16 @@
             <li>hello world list item </li>
           </ul>
         </div>
-          <div class="friendslist">
-          <div class="title">Conversations</div>
-          <hr />
-          <ul class="sideList">
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-          </ul>
-        </div>
+         <div class="lift:comet?type=Conversations">
+            <div class="title">Conversations</div>
+	        <div class="convo">
+	              <ul>
+	                  <li class="clearable">Convo 1</li>
+	                  <li class="clearable">Convo 2</li>
+	                  <li class="clearable">Convo 3</li>
+	              </ul>
+	       	</div>
+       	</div>
       
       </div>
 

@@ -32,16 +32,14 @@ object ChatIn {
     
     var msg = Message.create
      if ( !s.trim.isEmpty() ){
-	      msg.payload.:=(s)
-	      msg.dateSent.:=( Calendar.getInstance().getTime())
-	      msg.conversationID.:=(1)
-	      msg.sender.:= (User.
-	          currentUser.
-	          	openOrThrowException(
-	          	    "This snippet is used on pages where the user is logged in, you are attempting to write a message but the user does not exist").id)
+	      msg.payload(s)
+	      msg.dateSent(Calendar.getInstance().getTime())
+	      msg.conversation(1)
+	      msg.sender(User.currentUser)
 	      msg.save
 	      
 	      ChatServer ! s
+	      
   	}
     SetValById("chat_in", "")
   })

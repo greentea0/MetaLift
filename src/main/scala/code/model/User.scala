@@ -43,7 +43,7 @@ class User extends MegaProtoUser[User] {
   object dateLoggedOff extends MappedDateTime( this )
   object status extends MappedInt( this )
   object nickname extends MappedString( this, 140 )
-  object currentConveration extends MappedLongForeignKey( this, Conversation ){
+  object currentConversation extends MappedLongForeignKey( this, Conversation ){
     override def defaultValue = 1L;
   }
   
