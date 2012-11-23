@@ -114,6 +114,7 @@ body
 	padding-left:4px;
 	font-weight:bold;
 	font-weight:20;
+	
 }
 ul
 {
@@ -133,6 +134,7 @@ hr
 {
 	margin:right:auto;
 	margin:left:auto;
+
 }
 
 
@@ -181,7 +183,7 @@ hr
 
 /*login and sign up form*/
 form{
-	margin-top:25px;
+	margin-top:0px;
 	background-color:rgba(255,255,255,0.5);
 	border-radius:5px;
 	padding-top:4px;
@@ -205,7 +207,7 @@ td{
 	background-color:white;
 }
 
-/*friends list and conversations list*/
+/*friends list and conversations list
 .sideList{
 	margin-left: auto;
 	margin-right: auto;
@@ -213,5 +215,109 @@ td{
     list-style-type: none;
     overflow:auto;
     padding:0px;
-    
+}*/
+/*///////////////////////////////////////////////////*/
+.createBox{
+	margin-top: 25px;
+	width: 500px;
+	float: left;
+	background-color:rgba(255,255,255,0.5);
+	border-radius:5px;
+	padding-top:4px;
+	padding-bottom:4px;	
+	//border:solid yellow;/* testing*/
+}
+.innerBox{
+	margin-top:2px;
+	background-color:rgba(255,255,255,1);
+	border-radius: 5px;
+	padding:4px;
+	margin-right:4px;
+	margin-left:4px;
+	height:400px;
+	
+}
+.leftSide{
+	//border: orange solid 2px;
+	float:left;
+	width: 243px;
+}
+.search{
+	//border: grey solid 2px;
+	/*float:left;*/
+	width:243px;
+
+}
+.addF{
+	/*float:left;*/
+	//border:solid red; /* testing*/
+	width:243px;
+	height:312px;
+	//border-right: solid green 2px;
+}
+.converForm{
+	margin-top:0px;
+	background-color:rgba(255,255,255,0.5);
+	border-radius:5px;
+	padding-top:4px;
+	padding-bottom:4px;	
+	width:100%;
+}
+
+.info{
+	float:right;
+	//border:solid blue;/* testing*/
+	width: 235px;
+	height:370px;
+}
+
+/*the size of the option box in the left side of the conversation.html*/
+.userOption
+{
+	width: 240px;
+	height: 269px;
+	margin-left: 3px;
+}
+
+/*the size of the option box in the info div side of the conversation.html*/
+.addedPeople
+{
+	width: 230px;
+	height: 269px;
+	margin-left: 3px;
+}
+
+/*css for paragraph in conversational.html*/
+p
+{
+	margin: 0px;
+	padding-left: 3px;
+}
+
+/*css for hr in conversational.html*/
+.margin3
+{
+	margin: 3px;
+	//margin-right: 3px;
+	width: 98%;
+}
+
+/*css for div class invited in conversational.html*/
+.invited
+{
+	padding-left: 3px;
+}
+
+/*css for div class topic in conversational.html*/
+.topic
+{
+	margin-bottom: 10px;
+}
+
+/*align the current page name to the right*/
+.span-6 ul li span
+{
+	float:right;
+	margin-top: 5px;
+	margin-right: 5px;
 }
