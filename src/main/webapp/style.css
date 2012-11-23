@@ -225,7 +225,7 @@ td{
 	border-radius:5px;
 	padding-top:4px;
 	padding-bottom:4px;	
-	/*border:solid yellow;/* testing*/
+	border:solid yellow;/* testing*/
 }
 .innerBox{
 	margin-top:2px;
@@ -235,13 +235,22 @@ td{
 	margin-right:4px;
 	margin-left:4px;
 	height:400px;
-
+	
+}
+.leftSide{
+	border: orange solid 2px;
+	float:left;
+}
+.search{
+	border: grey solid 2px;
+	/*float:left;*/
+	width:269px;
 }
 .addF{
-	float:left;
-	/*border:solid red; /* testing*/
-	width:270px;
-	height:370px;
+	/*float:left;*/
+	border:solid red; /* testing*/
+	width:269px;
+	height:305px;
 	border-right: solid green 2px;
 }
 .converForm{
@@ -255,7 +264,7 @@ td{
 
 .info{
 	float:right;
-	/*border:solid blue;/* testing*/
+	border:solid blue;/* testing*/
 	width: 200px;
 	height:370px;
 }
