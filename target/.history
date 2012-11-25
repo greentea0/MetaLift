@@ -118,3 +118,8 @@ container:run
 container:run;
 container:run
 ~container:start
+exit
+~container:start
+~container:exit
+~container:stop
+clean

@@ -163,4 +163,6 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
+#SCALA
+.history
 *.class
