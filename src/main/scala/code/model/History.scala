@@ -11,8 +11,9 @@ class History  extends LongKeyedMapper[History] {
 	
   def primaryKeyField = id
   object id extends MappedLongIndex(this)
-  object conversationID extends MappedLongForeignKey(this, Conversation)
+  object user extends MappedLongForeignKey( this , User )
   object joined extends MappedDateTime( this )
+  
 }
 
 object History extends History with LongKeyedMetaMapper[History] {
