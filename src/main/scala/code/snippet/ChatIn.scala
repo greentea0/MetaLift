@@ -34,7 +34,7 @@ object ChatIn {
      if ( !s.trim.isEmpty() ){
 	      msg.payload.:=(s)
 	      msg.dateSent.:=( Calendar.getInstance().getTime())
-	      msg.conversationID.:=(1)
+	      msg.conversation.:=(1)
 	      msg.sender.:= (User.
 	          currentUser.
 	          	openOrThrowException(
