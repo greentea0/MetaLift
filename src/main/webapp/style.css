@@ -114,6 +114,7 @@ body
 	padding-left:4px;
 	font-weight:bold;
 	font-weight:20;
+	
 }
 ul
 {
@@ -133,6 +134,7 @@ hr
 {
 	margin:right:auto;
 	margin:left:auto;
+
 }
 
 
@@ -205,7 +207,7 @@ td{
 	background-color:white;
 }
 
-/*friends list and conversations list*/
+/*friends list and conversations list
 .sideList{
 	margin-left: auto;
 	margin-right: auto;
@@ -213,5 +215,57 @@ td{
     list-style-type: none;
     overflow:auto;
     padding:0px;
-    
+}*/
+/*///////////////////////////////////////////////////*/
+.createBox{
+	margin-top: 25px;
+	width: 500px;
+	float: left;
+	background-color:rgba(255,255,255,0.5);
+	border-radius:5px;
+	padding-top:4px;
+	padding-bottom:4px;	
+	border:solid yellow;/* testing*/
 }
+.innerBox{
+	margin-top:2px;
+	background-color:rgba(255,255,255,1);
+	border-radius: 5px;
+	padding:4px;
+	margin-right:4px;
+	margin-left:4px;
+	height:400px;
+	
+}
+.leftSide{
+	border: orange solid 2px;
+	float:left;
+}
+.search{
+	border: grey solid 2px;
+	/*float:left;*/
+	width:269px;
+}
+.addF{
+	/*float:left;*/
+	border:solid red; /* testing*/
+	width:269px;
+	height:305px;
+	border-right: solid green 2px;
+}
+.converForm{
+	margin-top:0px;
+	background-color:rgba(255,255,255,0.5);
+	border-radius:5px;
+	padding-top:4px;
+	padding-bottom:4px;	
+	width:100%;
+}
+
+.info{
+	float:right;
+	border:solid blue;/* testing*/
+	width: 200px;
+	height:370px;
+}
+
