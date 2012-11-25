@@ -80,3 +80,4 @@ exit
 container:start
 exit
 container:start
+clean
