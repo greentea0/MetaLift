@@ -30,8 +30,8 @@ object ChatIn {
    */
   def render = SHtml.onSubmit(s => {
     
-    var msg = Message.create
      if ( !s.trim.isEmpty() ){
+       var msg = Message.create
 	      msg.payload(s)
 	      msg.dateSent(Calendar.getInstance().getTime())
 	      msg.conversation(1)

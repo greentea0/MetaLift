@@ -2,19 +2,19 @@
 [debug] Initial source changes: 
 [debug] 	removed:Set()
 [debug] 	added: Set()
-[debug] 	modified: Set()
-[debug] Removed products: Set(C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes\code\comet\Chat$$anonfun$lowPriority$1.class, C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes\code\comet\Chat$$anonfun$lowPriority$1$$anonfun$apply$1.class, C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes\code\comet\Chat.class, C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes\code\comet\Chat$$anonfun$render$1.class)
+[debug] 	modified: Set(C:\Users\Pavel\workspace2\MetaLift\src\main\scala\code\snippet\ChatIn.scala)
+[debug] Removed products: Set(C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes\code\snippet\ChatIn$.class, C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes\code\snippet\ChatIn.class, C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes\code\snippet\ChatIn$$anonfun$render$1.class)
 [debug] Modified external sources: Set()
 [debug] Modified binary dependencies: Set()
-[debug] Initial directly invalidated sources: Set()
+[debug] Initial directly invalidated sources: Set(C:\Users\Pavel\workspace2\MetaLift\src\main\scala\code\snippet\ChatIn.scala)
 [debug] 
 [debug] Sources indirectly invalidated by:
-[debug] 	product: Set(C:\Users\Pavel\workspace2\MetaLift\src\main\scala\code\comet\Chat.scala)
+[debug] 	product: Set(C:\Users\Pavel\workspace2\MetaLift\src\main\scala\code\snippet\ChatIn.scala)
 [debug] 	binary dep: Set()
 [debug] 	external source: Set()
-[debug] Initially invalidated: Set(C:\Users\Pavel\workspace2\MetaLift\src\main\scala\code\comet\Chat.scala)
+[debug] Initially invalidated: Set(C:\Users\Pavel\workspace2\MetaLift\src\main\scala\code\snippet\ChatIn.scala)
 [info] Compiling 1 Scala source to C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes...
-[debug] Running cached compiler 211efd89, interfacing (CompilerInterface) with Scala compiler version 2.9.1.final
+[debug] Running cached compiler 36dc56de, interfacing (CompilerInterface) with Scala compiler version 2.9.1.final
 [debug] Calling Scala compiler with arguments  (CompilerInterface):
 [debug] 	-deprecation
 [debug] 	-unchecked
@@ -24,10 +24,6 @@
 [debug] 	C:\Program Files\Java\jre7\lib\resources.jar;C:\Program Files\Java\jre7\lib\rt.jar;C:\Program Files\Java\jre7\lib\sunrsasign.jar;C:\Program Files\Java\jre7\lib\jsse.jar;C:\Program Files\Java\jre7\lib\jce.jar;C:\Program Files\Java\jre7\lib\charsets.jar;C:\Program Files\Java\jre7\lib\jfr.jar;C:\Program Files\Java\jre7\classes;C:\Users\Pavel\.sbt\boot\scala-2.9.1\lib\scala-library.jar
 [debug] 	-classpath
 [debug] 	C:\Users\Pavel\workspace2\MetaLift\target\scala-2.9.1\classes;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-webkit_2.9.1\jars\lift-webkit_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-util_2.9.1\jars\lift-util_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-actor_2.9.1\jars\lift-actor_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-common_2.9.1\jars\lift-common_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-json_2.9.1\jars\lift-json_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\org.scala-lang\scalap\jars\scalap-2.9.1.jar;C:\Users\Pavel\.sbt\boot\scala-2.9.1\lib\scala-compiler.jar;C:\Users\Pavel\.ivy2\cache\com.thoughtworks.paranamer\paranamer\jars\paranamer-2.4.1.jar;C:\Users\Pavel\.ivy2\cache\joda-time\joda-time\jars\joda-time-1.6.2.jar;C:\Users\Pavel\.ivy2\cache\commons-codec\commons-codec\jars\commons-codec-1.6.jar;C:\Users\Pavel\.ivy2\cache\javax.mail\mail\jars\mail-1.4.4.jar;C:\Users\Pavel\.ivy2\cache\javax.activation\activation\jars\activation-1.1.jar;C:\Users\Pavel\.ivy2\cache\nu.validator.htmlparser\htmlparser\bundles\htmlparser-1.4.jar;C:\Users\Pavel\.ivy2\cache\commons-fileupload\commons-fileupload\jars\commons-fileupload-1.2.2.jar;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-mapper_2.9.1\jars\lift-mapper_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-db_2.9.1\jars\lift-db_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-proto_2.9.1\jars\lift-proto_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\net.liftmodules\lift-jquery-module_2.9.1\jars\lift-jquery-module_2.9.1-2.5-M2-1.0.jar;C:\Users\Pavel\.ivy2\cache\net.liftweb\lift-testkit_2.9.1\jars\lift-testkit_2.9.1-2.5-M2.jar;C:\Users\Pavel\.ivy2\cache\commons-httpclient\commons-httpclient\jars\commons-httpclient-3.1.jar;C:\Users\Pavel\.ivy2\cache\commons-logging\commons-logging\jars\commons-logging-1.0.4.jar;C:\Users\Pavel\.ivy2\cache\ch.qos.logback\logback-classic\jars\logback-classic-1.0.6.jar;C:\Users\Pavel\.ivy2\cache\ch.qos.logback\logback-core\jars\logback-core-1.0.6.jar;C:\Users\Pavel\.ivy2\cache\org.slf4j\slf4j-api\jars\slf4j-api-1.6.5.jar;C:\Users\Pavel\.ivy2\cache\com.h2database\h2\jars\h2-1.3.167.jar;C:\Users\Pavel\.ivy2\cache\mysql\mysql-connector-java\jars\mysql-connector-java-5.1.15.jar
-[warn] C:\Users\Pavel\workspace2\MetaLift\src\main\scala\code\comet\Chat.scala:34: non variable type-argument String in type pattern List[String] is unchecked since it is eliminated by erasure
-[warn]     case v: List[String] => 
-[warn]             ^
-[warn] one warning found
-[debug] Scala compilation took 2.265957307 s
+[debug] Scala compilation took 1.202505796 s
 [debug] 	Invalidated direct: Set()
 [debug] Incrementally invalidated: Set()
