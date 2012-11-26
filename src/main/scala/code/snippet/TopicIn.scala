@@ -31,8 +31,13 @@ object TopicIn {
         
      if ( !topic.trim.isEmpty() ){
 		  		 
-		  //var newConvo: Conversation =  Conversation.create.topic(topic).startedBy(User.currentUser)
+		  var newConvo: Conversation =  Conversation.create
+		  newConvo.topic(topic)
+		  newConvo.startedBy(User.currentUser)
+		  newConvo.startedAt(Calendar.getInstance().getTime())
 	      
+		  newConvo.save
+		  
 	      ConvoServer ! topic
   	}
      

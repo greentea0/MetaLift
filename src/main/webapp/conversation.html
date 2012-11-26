@@ -35,13 +35,9 @@
 					</div>
 				</div>
 				<div class="info">
-					<form class="lift:form.ajax">
-						<div class="topic">
-							<p>Enter your topic here:</p>
-							<input type="text" id="" name="topicName" value="" maxlength=""><br />
-						</div>
+					<div class="people"">
 						<hr class="margin3">
-						<p>Invited:</p>
+						<p>People to Invite:</p>
 							<select class="addedPeople" multiple="multiple" disabled="disabled">
 								  <option value="f1">f1</option>
 								  <option value="f2">f2</option>
@@ -52,12 +48,15 @@
 								  <option value="f7">f3</option>
 								  <option value="f8">f4</option>
 							</select>
-						
-						<div class="create">
-							<button type="submit" title="create" value="create">Create</button>
-						<!--summit button-->
-						</div>
-					</form>
+					</div>
+					<div class="topic">
+						<p>Enter your topic here:</p>
+						<form class="lift:form.ajax?class=topicinput">
+							<input class="lift:TopicIn topicinputfield" id="topic_in"/>
+							<input type="submit" value="Create"/>
+				  		</form>
+				  		<br />
+					</div>
 				</div>
 			</div>	
 		</div>
