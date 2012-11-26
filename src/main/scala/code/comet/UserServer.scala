@@ -10,7 +10,7 @@ import net.liftweb.mapper.By
  * It's an Actor so it's thread-safe because only one
  * message will be processed at once.
  */
-object ConversationCreateServer extends LiftActor with ListenerManager {
+object UserServer extends LiftActor with ListenerManager {
 
  
   var queryString = ""
