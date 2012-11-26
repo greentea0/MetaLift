@@ -29,18 +29,15 @@ object TopicIn {
 */
   def render = SHtml.onSubmit(topic => {
         
-     if ( !topic.trim.isEmpty() ){
-		  		 
+     if (!topic.trim.isEmpty()){ 
 		  var newConvo: Conversation =  Conversation.create
-		  newConvo.topic(topic)
+		  newConvo.topic(topic.trim())
 		  newConvo.startedBy(User.currentUser)
 		  newConvo.startedAt(Calendar.getInstance().getTime())
-	      
 		  newConvo.save
-		  
-	      ConvoServer ! topic
-  	}
+     }
+     ConvoServer ! topic
      
-    SetValById("topic_in", "")
+	 SetValById("topic_in", "")
   })
 }

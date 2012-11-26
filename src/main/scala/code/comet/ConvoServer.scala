@@ -9,14 +9,14 @@ import actor._
  * message will be processed at once.
  */
 object ConvoServer extends LiftActor with ListenerManager {
-  private var convos = Vector("Conversations") // private state
+  private var topic = "" // private state
   /**
    * When we update the listeners, what message do we send?
    * We send the msgs, which is an immutable data structure,
    * so it can be shared with lots of threads without any
    * danger or locking.
    */
-  def createUpdate = convos
+  def createUpdate = topic
   /**
    * process messages that are sent to the Actor.  In
    * this case, we're looking for Strings that are sent
@@ -24,6 +24,6 @@ object ConvoServer extends LiftActor with ListenerManager {
    * messages, and then update all the listeners.
    */
   override def lowPriority = {
-    case s: String => convos :+= s; updateListeners()
+    case s: String => topic = s; updateListeners()
   }
 }

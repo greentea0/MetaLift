@@ -81,8 +81,9 @@ body
 	margin-top:4px;
 	border-radius: 5px;
 	width : auto;
-	height : 45%;
+	height: 150px;
 	background-color:white;
+	overflow:scroll;
 }
 .friends
 {
@@ -93,7 +94,7 @@ body
 	background-color:white;
 }
 
-.conversations
+.convos
 {
 	margin-top:4px;
 	border-radius: 5px;
@@ -101,13 +102,15 @@ body
 	height : 45%;
 	background-color:white;
 }
+
 .convolist
 {
 	margin-top:4px;
 	border-radius: 5px;
 	width : auto;
-	height : 45%;
+	height: 150px;
 	background-color:white;
+	overflow:scroll;
 }
 
 

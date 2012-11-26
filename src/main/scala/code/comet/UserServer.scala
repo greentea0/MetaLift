@@ -12,8 +12,7 @@ import net.liftweb.mapper.By
  */
 object UserServer extends LiftActor with ListenerManager {
 
- 
-  var queryString = ""
+  private var queryString = ""
   /**
    * When we update the listeners, what message do we send?
    * We send the msgs, which is an immutable data structure,

@@ -31,26 +31,31 @@ class Chat extends CometActor with CometListener {
    * cause changes to be sent to the browser.
    */
   override def lowPriority = {
-    case v: Vector[String] => 
-      if ( !v.last.isEmpty()){
-          // grab all the message sfor the current user for their current conversation
+    case s: String => {
+      
+          // grab all the messages for the current user for their current conversation
 	      val messages = Message.findAll( By( Message.conversation,
-	          User.currentUser.openOrThrowException("Unable to get user when I am trying to pull for all the messages!").currentConversation),PreCache(Message.sender))
+	          User.currentUser.get.currentConversation.get),PreCache(Message.sender))
 	      
 	          // put those messages into the chat window
-	          msgs = messages.map(( m : Message ) =>
-	           m.sender.obj.openOrThrowException("Cant open this user when I am trying to get the first name for the messages!").
-	           firstName.get  
+	      msgs = messages.map(( m : Message ) =>
+	           m.sender.obj.get.firstName.get  
 	           +" " + 
-	           m.sender.obj.openOrThrowException("Cant open this user when I am trying to get the last name for the messages!").
-	           lastName.get
-	           +" : "+m.payload.get)
-      }
-      reRender()
+	           m.sender.obj.get.lastName.get
+	           +" : "+
+	           m.payload.get)
+      
+    }
+    
+	reRender()
+    
   }
   /**s
    * Put the messages in the li elements and clear
    * any elements that have the clearable class.
    */
-  def render = "li *" #> msgs & ClearClearable
+  def render = {
+    "li *" #> msgs & ClearClearable
+
+    }
 }

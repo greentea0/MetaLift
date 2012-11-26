@@ -12,20 +12,20 @@
 		<div class="createBox">
 			<div class="innerBox">
 				<div class="title">Create a conversation</div>
-				<hr class="margin3">
+				<hr class="margin3"/>
 				<div class="leftSide">
 					<div class="search">
 					<p>Type the person's name:</p>
-						<form class="lift:form.ajax">
+						<form class="lift:form.ajax?class=searchuserinput">
 							<input class="lift:SearchUserName">
 							<input type="submit" title="Search">
 						</form>
 					</div>
 					<div class="addF">
 						<form class="lift:comet?type=SearchUser">
-						<hr class="margin3">
+						<hr class="margin3"/>
 						<p>Select the names to invite:</p>
-							<select class="addedPeople" multiple="multiple" disabled="disabled">
+							<select class="addedPeople" multiple="multiple">
 								  <option value="f1">f1</option>
 								  <option value="f2">f2</option>
 								  
@@ -36,7 +36,7 @@
 				</div>
 				<div class="info">
 					<div class="people"">
-						<hr class="margin3">
+						<hr class="margin3"/>
 						<p>People to Invite:</p>
 							<select class="addedPeople" multiple="multiple" disabled="disabled">
 								  <option value="f1">f1</option>
@@ -49,10 +49,10 @@
 								  <option value="f8">f4</option>
 							</select>
 					</div>
-					<div class="topic">
+					<div>
 						<p>Enter your topic here:</p>
 						<form class="lift:form.ajax?class=topicinput">
-							<input class="lift:TopicIn topicinputfield" id="topic_in"/>
+							<input class="lift:TopicIn" id="topic_in"/>
 							<input type="submit" value="Create"/>
 				  		</form>
 				  		<br />
@@ -77,7 +77,7 @@
           </ul>
         </div>
         
-		<div class="conversations">
+		<div class="convos">
             <div class="title">Conversations</div>
             <hr />
 	        <div class="lift:comet?type=Conversations">
