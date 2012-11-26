@@ -84,6 +84,23 @@ body
 	height : 45%;
 	background-color:white;
 }
+.friends
+{
+	margin-top:4px;
+	border-radius: 5px;
+	width : auto;
+	height : 45%;
+	background-color:white;
+}
+
+.conversations
+{
+	margin-top:4px;
+	border-radius: 5px;
+	width : auto;
+	height : 45%;
+	background-color:white;
+}
 .convolist
 {
 	margin-top:4px;
@@ -93,15 +110,6 @@ body
 	background-color:white;
 }
 
-
-.conversations
-{
-	width : auto;
-	height : 45%;
-	border-radius: 5px;
-	background-color:white;
-	padding-top:20px;
-}
 
 .menu
 {

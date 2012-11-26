@@ -33,7 +33,7 @@ class Conversations extends CometActor with CometListener {
   override def lowPriority = {
     case v: Vector[String] => 
       if ( !v.last.isEmpty()){
-          // grab all the message sfor the current user for their current conversation
+          // grab all the conversations for the current user for their current conversation
 		  val conversations: List[Conversation] = Conversation.findAll()
 	      
 	          // put those messages into the chat window
