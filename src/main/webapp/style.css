@@ -81,18 +81,38 @@ body
 	margin-top:4px;
 	border-radius: 5px;
 	width : auto;
+	height: 150px;
+	background-color:white;
+	overflow:scroll;
+}
+.friends
+{
+	margin-top:4px;
+	border-radius: 5px;
+	width : auto;
 	height : 45%;
 	background-color:white;
 }
 
-.conversations
+.convos
 {
+	margin-top:4px;
+	border-radius: 5px;
 	width : auto;
 	height : 45%;
-	border-radius: 5px;
 	background-color:white;
-	padding-top:20px;
 }
+
+.convolist
+{
+	margin-top:4px;
+	border-radius: 5px;
+	width : auto;
+	height: 150px;
+	background-color:white;
+	overflow:scroll;
+}
+
 
 .menu
 {
