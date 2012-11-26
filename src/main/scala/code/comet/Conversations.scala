@@ -6,7 +6,7 @@ import util._
 import Helpers._
 import java.sql.Date
 import code.model._
-import code.model.Message
+import code.model.Conversation
 import java.util.Calendar
 import net.liftweb.mapper._
 import net.liftweb.mapper.MappedLongIndex
@@ -34,8 +34,7 @@ class Conversations extends CometActor with CometListener {
     case v: Vector[String] => 
       if ( !v.last.isEmpty()){
           // grab all the message sfor the current user for their current conversation
-		  val conversations = Conversation.findAll(In(Conversation.id, History.user, By(History.user,
-	          User.currentUser.openOrThrowException("Unable to get user when I am trying to pull for all the messages!").id)))
+		  val conversations: List[Conversation] = Conversation.findAll()
 	      
 	          // put those messages into the chat window
 	           convos = conversations.map(( c : Conversation ) =>

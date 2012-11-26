@@ -84,6 +84,15 @@ body
 	height : 45%;
 	background-color:white;
 }
+.convolist
+{
+	margin-top:4px;
+	border-radius: 5px;
+	width : auto;
+	height : 45%;
+	background-color:white;
+}
+
 
 .conversations
 {
