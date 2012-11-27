@@ -13,6 +13,7 @@ import mapper._
 
 import code.model._
 import net.liftmodules.JQueryModule
+import net.liftweb.widgets
 import java.sql.Connection
 import java.sql.DriverManager
 
@@ -52,6 +53,7 @@ class Boot {
       LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
 
       DB.defineConnectionManager(DefaultConnectionIdentifier, DBVendor)
+	  net.liftweb.widgets.autocomplete.AutoComplete.init
     }
 
     // Use Lift's Mapper ORM to populate the database
@@ -64,11 +66,12 @@ class Boot {
 
     // Build SiteMap
     def sitemap = SiteMap(
-      Menu.i("Home") / "index" >> User.AddUserMenusAfter // the simple way to declare a menu
+      Menu.i("Home") / "index" >> User.AddUserMenusAfter, // the simple way to declare a menu
 
-       ,Menu(Loc("Chat", Link(List("chat"), true, "/chat"), 
-         "ChatMine", Hidden)),
-		Menu.i("Conversation") / "conversation"
+      Menu(Loc("Chat", Link(List("chat"), true, "/chat"), "ChatMine", Hidden)),
+	  Menu("Conversation") / "conversation"
+	  //Menu("AjaxForm") / "ajaxform"
+	  
     )
     def sitemapMutators = User.sitemapMutator
 

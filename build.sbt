@@ -6,10 +6,10 @@ organization := "net.liftweb"
 
 scalaVersion := "2.9.1"
 
-resolvers ++= Seq("snapshots"     at "http://oss.sonatype.org/content/repositories/snapshots",
-                "releases"        at "http://oss.sonatype.org/content/repositories/releases"
-                )
-
+resolvers ++= Seq(
+		"Typesafe Releases Repository" at "http://repo.typesafe.com/typesafe/releases/",
+		"Typesafe Snapshots Repository" at "http://repo.typesafe.com/typesafe/snapshots/")
+				
 seq(com.github.siasia.WebPlugin.webSettings :_*)
 
 scalacOptions ++= Seq("-deprecation", "-unchecked")
@@ -17,6 +17,7 @@ scalacOptions ++= Seq("-deprecation", "-unchecked")
 libraryDependencies ++= {
   val liftVersion = "2.5-M2"
   Seq(
+    "net.liftmodules"   %% "widgets"       % "2.5-SNAPSHOT-1.0-SNAPSHOT" % "compile->default",
     "net.liftweb"       %% "lift-webkit"        % liftVersion        % "compile",
     "net.liftweb"       %% "lift-mapper"        % liftVersion        % "compile",
     "net.liftmodules"   %% "lift-jquery-module" % (liftVersion + "-1.0"),
