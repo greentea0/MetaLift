@@ -36,8 +36,12 @@
 				</div>
 				<div class="info">
 					<div class="people"">
-						<hr class="margin3"/>
-						<p>People to Invite:</p>
+						<lift:snippet type="FindSelectUser:show" form="post">
+				  			<p>Find Friend:</p>
+				  			<ajax:search></ajax:search>
+				   			<ajax:submit></ajax:submit>
+						</lift:snippet>
+						<p>People Invited:</p>
 							<select class="addedPeople" multiple="multiple" disabled="disabled">
 								  <option value="f1">f1</option>
 								  <option value="f2">f2</option>
