@@ -23,7 +23,7 @@ object User extends User with MetaMegaProtoUser[User] {
   override def skipEmailValidation = true
   
   override def homePage = if ( loggedIn_? ) {
-    "index"
+    "/index"
   } else { "/chat" }
 
   
