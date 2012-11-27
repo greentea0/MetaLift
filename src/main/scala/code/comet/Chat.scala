@@ -31,21 +31,24 @@ class Chat extends CometActor with CometListener {
    * cause changes to be sent to the browser.
    */
   override def lowPriority = {
-    case s: String => {
-      
-          // grab all the messages for the current user for their current conversation
-	      val messages = Message.findAll( By( Message.conversation,
-	          User.currentUser.get.currentConversation.get),PreCache(Message.sender))
-	      
-	          // put those messages into the chat window
-	      msgs = messages.map(( m : Message ) =>
-	           m.sender.obj.get.firstName.get  
-	           +" " + 
-	           m.sender.obj.get.lastName.get
-	           +" : "+
-	           m.payload.get)
-      
-    }
+  	case s: String => {
+	          // grab all the messages for the current user for their current conversation
+  		try {
+  			val messages = Message.findAll( By( Message.conversation,
+		    User.currentUser.get.currentConversation.get),PreCache(Message.sender))
+		      
+		          // put those messages into the chat window
+		    msgs = messages.map(( m : Message ) =>
+		    	m.sender.obj.get.firstName.get  
+		        +" " + 
+		        m.sender.obj.get.lastName.get
+		        +" : "+
+		        m.payload.get)
+		} catch  {
+			case nsee : NoSuchElementException => println("No such element : "+nsee.getMessage());
+		}
+	}
+   
     
 	reRender()
     

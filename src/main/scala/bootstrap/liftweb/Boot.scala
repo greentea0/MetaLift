@@ -3,18 +3,17 @@ package bootstrap.liftweb
 import net.liftweb._
 import util._
 import Helpers._
-
 import common._
 import http._
 import js.jquery.JQueryArtifacts
 import sitemap._
 import Loc._
 import mapper._
-
 import code.model._
 import net.liftmodules.JQueryModule
 import java.sql.Connection
 import java.sql.DriverManager
+import code.comet.TrendServer
 
 object DBVendor extends ConnectionManager with Logger {
   def newConnection(name: ConnectionIdentifier): Box[Connection] = {
@@ -84,17 +83,20 @@ class Boot {
     //Show the spinny image when an Ajax call starts
     LiftRules.ajaxStart =
       Full(() => LiftRules.jsArtifacts.show("ajax-loader").cmd)
-    
+   
     // Make the spinny image go away when it ends
     LiftRules.ajaxEnd =
       Full(() => LiftRules.jsArtifacts.hide("ajax-loader").cmd)
-
+   
     // Force the request to be UTF-8
     LiftRules.early.append(_.setCharacterEncoding("UTF-8"))
 
     // What is the function to test if a user is logged in?
     LiftRules.loggedInTest = Full(() => User.loggedIn_?)
-
+    // on startup we want to start calculating trends every hour
+    // we also need to make sure we stop this process when the server goes offline
+     TrendServer ! TrendServer.DoIt
+    LiftRules.unloadHooks.append( () => TrendServer ! TrendServer.Stop )
     // Use HTML5 for rendering
     LiftRules.htmlProperties.default.set((r: Req) =>
       new Html5Properties(r.userAgent))    
