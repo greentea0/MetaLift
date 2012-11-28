@@ -6,23 +6,23 @@ import util._
 import Helpers._
 import java.sql.Date
 import code.model._
-import code.model.Message
-import java.util.Calendar
+import code.model.User
 import net.liftweb.mapper._
 import net.liftweb.mapper.MappedLongIndex
 import net.liftweb.http.js.JE
+import net.liftweb.common.Box
 /**
  * The screen real estate on the browser will be represented
  * by this component.  When the component changes on the server
  * the changes are automatically reflected in the browser.
  */
-class Chat extends CometActor with CometListener {
-  private var msgs: List[String] = List() // private state
+class SearchUser extends CometActor with CometListener {
+  private var usersFound: List[User] = List() // private state
   /**
    * When the component is instantiated, register as
    * a listener with the ChatServer
    */
-  def registerWith = ChatServer
+  def registerWith = UserServer
   /**
    * The CometActor is an Actor, so it processes messages.
    * In this case, we're listening for Vector[String],
@@ -31,34 +31,18 @@ class Chat extends CometActor with CometListener {
    * cause changes to be sent to the browser.
    */
   override def lowPriority = {
-  	case s: String => {
-	          // grab all the messages for the current user for their current conversation
-  		try {
-  			val messages = Message.findAll( By( Message.conversation,
-		    User.currentUser.get.currentConversation.get),PreCache(Message.sender))
-		      
-		          // put those messages into the chat window
-		    msgs = messages.map(( m : Message ) =>
-		    	m.sender.obj.get.firstName.get  
-		        +" " + 
-		        m.sender.obj.get.lastName.get
-		        +" : "+
-		        m.payload.get)
-		} catch  {
-			case nsee : NoSuchElementException => println("No such element : "+nsee.getMessage());
-		}
-	}
-   
-    
-	reRender()
-    
+    case s:String => 
+      {
+        usersFound =  User.findAll(By( User.firstName, s))
+      }
+      reRender()
   }
   /**s
    * Put the messages in the li elements and clear
    * any elements that have the clearable class.
    */
+   
   def render = {
-    "li *" #> msgs & ClearClearable
-
-    }
+   "option" #> usersFound.map{ d => "option *" #> (d.firstName + "  " + d.lastName) & "* [userid]" #> d.id}
+  }
 }

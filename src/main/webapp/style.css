@@ -81,18 +81,38 @@ body
 	margin-top:4px;
 	border-radius: 5px;
 	width : auto;
+	height: 150px;
+	background-color:white;
+	overflow:scroll;
+}
+.friends
+{
+	margin-top:4px;
+	border-radius: 5px;
+	width : auto;
 	height : 45%;
 	background-color:white;
 }
 
-.conversations
+.convos
 {
+	margin-top:4px;
+	border-radius: 5px;
 	width : auto;
 	height : 45%;
-	border-radius: 5px;
 	background-color:white;
-	padding-top:20px;
 }
+
+.convolist
+{
+	margin-top:4px;
+	border-radius: 5px;
+	width : auto;
+	height: 150px;
+	background-color:white;
+	overflow:scroll;
+}
+
 
 .menu
 {
@@ -183,7 +203,7 @@ hr
 
 /*login and sign up form*/
 form{
-	margin-top:0px;
+	margin-top:25px;
 	background-color:rgba(255,255,255,0.5);
 	border-radius:5px;
 	padding-top:4px;
@@ -225,7 +245,7 @@ td{
 	border-radius:5px;
 	padding-top:4px;
 	padding-bottom:4px;	
-	//border:solid yellow;/* testing*/
+	border:solid yellow;/* testing*/
 }
 .innerBox{
 	margin-top:2px;
@@ -238,22 +258,20 @@ td{
 	
 }
 .leftSide{
-	//border: orange solid 2px;
+	border: orange solid 2px;
 	float:left;
-	width: 243px;
 }
 .search{
-	//border: grey solid 2px;
+	border: grey solid 2px;
 	/*float:left;*/
-	width:243px;
-
+	width:269px;
 }
 .addF{
 	/*float:left;*/
-	//border:solid red; /* testing*/
-	width:243px;
-	height:312px;
-	//border-right: solid green 2px;
+	border:solid red; /* testing*/
+	width:269px;
+	height:305px;
+	border-right: solid green 2px;
 }
 .converForm{
 	margin-top:0px;
@@ -266,58 +284,8 @@ td{
 
 .info{
 	float:right;
-	//border:solid blue;/* testing*/
-	width: 235px;
+	border:solid blue;/* testing*/
+	width: 200px;
 	height:370px;
 }
 
-/*the size of the option box in the left side of the conversation.html*/
-.userOption
-{
-	width: 240px;
-	height: 269px;
-	margin-left: 3px;
-}
-
-/*the size of the option box in the info div side of the conversation.html*/
-.addedPeople
-{
-	width: 230px;
-	height: 269px;
-	margin-left: 3px;
-}
-
-/*css for paragraph in conversational.html*/
-p
-{
-	margin: 0px;
-	padding-left: 3px;
-}
-
-/*css for hr in conversational.html*/
-.margin3
-{
-	margin: 3px;
-	//margin-right: 3px;
-	width: 98%;
-}
-
-/*css for div class invited in conversational.html*/
-.invited
-{
-	padding-left: 3px;
-}
-
-/*css for div class topic in conversational.html*/
-.topic
-{
-	margin-bottom: 10px;
-}
-
-/*align the current page name to the right*/
-.span-6 ul li span
-{
-	float:right;
-	margin-top: 5px;
-	margin-right: 5px;
-}

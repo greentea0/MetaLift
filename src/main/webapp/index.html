@@ -7,7 +7,65 @@
   </head>
   <body class="lift:content_id=main">
     <div id="main" class="lift:surround?with=default;at=content">
-     
+
+      
+     <div class="chatbox">
+      
+     <!-- the behavior of the div -->
+	     <div class="centercontent">
+	        <div class="lift:comet?type=Chat">
+	            
+	            <div class="title">General Lobby</div>
+		        <div class="chatoutput">
+		        
+		              <ul class="sideList"><!--added sideList-->
+		                  <li>A message</li>
+		                  <li class="clearable">Another message</li>
+		                  <li class="clearable">A third message</li>
+		              </ul>
+		       	</div>
+		       	
+		       	<div>
+		          <form class="lift:form.ajax?class=chatinput">
+		            <input class="lift:ChatIn chatinputfield" id="chat_in"/>
+		           
+		             <input type="submit" value="Send"/>
+		          </form>
+	        	</div>
+	        	
+	       	</div>
+	      </div>
+      </div>
+      
+      <div class="sidebarMetaLift">
+       
+		<div class="friends">
+          <div class="title">Friends</div>
+          <hr />
+          <ul class="friendslist">
+            <li>hello world list item </li>
+            <li>hello world list item </li>
+            <li>hello world list item </li>
+            <li>hello world list item </li>
+            <li>hello world list item </li>
+            <li>hello world list item </li>
+          </ul>
+        </div>
+        
+		<div class="convos">
+            <div class="title">Conversations</div>
+            <hr />
+	        <div class="lift:comet?type=Conversations">
+	        
+				<ul class="convolist">
+					<li>A Conversation1</li>
+	                <li class="clearable">Convo 2</li>
+	                <li class="clearable">Convo 3</li>
+				</ul>
+	       	</div>
+		</div>
+      
+      </div>
     </div>
   </body>
 </html>

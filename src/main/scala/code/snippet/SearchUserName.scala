@@ -5,33 +5,26 @@ import http._
 import js._
 import JsCmds._
 import JE._
-import comet.ChatServer
-import code.model.Message
-import java.util.Calendar
-import code.model.User
 
-object ChatIn {
-  /**
+import comet.UserServer
+
+/*
+ * A snippet that search on user's name
+ * When click on search, it will look into the user's friend
+ * Then return the result in another form
+*/
+object SearchUserName {
+/* 
    * The render method in this case returns a function
    * that transforms NodeSeq => NodeSeq.  In this case,
    * the function transforms a form input element by attaching
    * behavior to the input.  The behavior is to send a message
    * to the ChatServer and then returns JavaScript which
    * clears the input.
-   */
+*/
   def render = SHtml.onSubmit(s => {
-
-     if (!s.trim.isEmpty()){
-          var msg = Message.create
-          msg.payload(s.trim())
-	      msg.dateSent( Calendar.getInstance().getTime())
-	      msg.conversation(1)
-	      msg.sender(User.currentUser.get.id.get)
-	      msg.save
-	     
-  	}
-    ChatServer ! s
-   
-    SetValById("chat_in", "")    
+      
+	      UserServer ! s
+	      
   })
 }
