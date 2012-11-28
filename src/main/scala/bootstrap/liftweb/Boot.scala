@@ -68,7 +68,9 @@ class Boot {
 
        ,Menu(Loc("Chat", Link(List("chat"), true, "/chat"), 
          "ChatMine", Hidden)),
-		Menu.i("Conversation") / "conversation"
+		Menu.i("Conversation") / "conversation", 
+		Menu(Loc("Friend", Link(List("friends"), true, "/friends"), "Add friend")),
+		Menu(Loc("Requestor", Link(List("requestor"), true, "/requestor"), "Friend request"))
     )
     def sitemapMutators = User.sitemapMutator
 
