@@ -6,7 +6,7 @@ import js._
 import JsCmds._
 import JE._
 
-import comet.ConversationCreateServer
+import comet.UserServer
 
 /*
  * A snippet that search on user's name
@@ -24,7 +24,7 @@ object SearchUserName {
 */
   def render = SHtml.onSubmit(s => {
       
-	      ConversationCreateServer ! s
+	      UserServer ! s
 	      
   })
 }

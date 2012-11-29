@@ -9,16 +9,7 @@ import comet.ChatServer
 import code.model.Message
 import java.util.Calendar
 import code.model.User
-/**
- * A snippet transforms input to output... it transforms
- * templates to dynamic content.  Lift's templates can invoke
- * snippets and the snippets are resolved in many different
- * ways including "by convention".  The snippet package
- * has named snippets and those snippets can be classes
- * that are instantiated when invoked or they can be
- * objects, singletons.  Singletons are useful if there's
- * no explicit state managed in the snippet.
- */
+
 object ChatIn {
   /**
    * The render method in this case returns a function
@@ -29,20 +20,18 @@ object ChatIn {
    * clears the input.
    */
   def render = SHtml.onSubmit(s => {
-    
-    var msg = Message.create
-     if ( !s.trim.isEmpty() ){
-	      msg.payload.:=(s)
-	      msg.dateSent.:=( Calendar.getInstance().getTime())
-	      msg.conversationID.:=(1)
-	      msg.sender.:= (User.
-	          currentUser.
-	          	openOrThrowException(
-	          	    "This snippet is used on pages where the user is logged in, you are attempting to write a message but the user does not exist").id)
+
+     if (!s.trim.isEmpty()){
+          var msg = Message.create
+          msg.payload(s.trim())
+	      msg.dateSent( Calendar.getInstance().getTime())
+	      msg.conversation(1)
+	      msg.sender(User.currentUser.get.id.get)
 	      msg.save
-	      
-	      ChatServer ! s
+	     
   	}
-    SetValById("chat_in", "")
+    ChatServer ! s
+   
+    SetValById("chat_in", "")    
   })
 }

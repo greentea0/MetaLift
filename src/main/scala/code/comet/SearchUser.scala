@@ -10,18 +10,19 @@ import code.model.User
 import net.liftweb.mapper._
 import net.liftweb.mapper.MappedLongIndex
 import net.liftweb.http.js.JE
+import net.liftweb.common.Box
 /**
  * The screen real estate on the browser will be represented
  * by this component.  When the component changes on the server
  * the changes are automatically reflected in the browser.
  */
 class SearchUser extends CometActor with CometListener {
-  private var users: List[String] = List() // private state
+  private var usersFound: List[User] = List() // private state
   /**
    * When the component is instantiated, register as
    * a listener with the ChatServer
    */
-  def registerWith = ConversationCreateServer
+  def registerWith = UserServer
   /**
    * The CometActor is an Actor, so it processes messages.
    * In this case, we're listening for Vector[String],
@@ -32,10 +33,7 @@ class SearchUser extends CometActor with CometListener {
   override def lowPriority = {
     case s:String => 
       {
-        users =  User.findAll( By( User.firstName, s)).map( ( user : User ) => user.firstName + " " + user.lastName)
-        
-        print(users(0))
-        print(users(1))
+        usersFound =  User.findAll(By( User.firstName, s))
       }
       reRender()
   }
@@ -43,5 +41,8 @@ class SearchUser extends CometActor with CometListener {
    * Put the messages in the li elements and clear
    * any elements that have the clearable class.
    */
-  def render = "option *" #> users & ClearClearable
+   
+  def render = {
+   "option" #> usersFound.map{ d => "option *" #> (d.firstName + "  " + d.lastName) & "* [userid]" #> d.id}
+  }
 }

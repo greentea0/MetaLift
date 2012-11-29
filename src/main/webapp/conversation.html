@@ -12,20 +12,20 @@
 		<div class="createBox">
 			<div class="innerBox">
 				<div class="title">Create a conversation</div>
-				<hr class="margin3">
+				<hr class="margin3"/>
 				<div class="leftSide">
 					<div class="search">
 					<p>Type the person's name:</p>
-						<form class="lift:form.ajax">
+						<form class="lift:form.ajax?class=searchuserinput">
 							<input class="lift:SearchUserName">
 							<input type="submit" title="Search">
 						</form>
 					</div>
 					<div class="addF">
 						<form class="lift:comet?type=SearchUser">
-						<hr class="margin3">
+						<hr class="margin3"/>
 						<p>Select the names to invite:</p>
-							<select class="addedPeople" multiple="multiple" disabled="disabled">
+							<select class="addedPeople" multiple="multiple">
 								  <option value="f1">f1</option>
 								  <option value="f2">f2</option>
 								  
@@ -35,13 +35,9 @@
 					</div>
 				</div>
 				<div class="info">
-					<form class="lift:form.ajax">
-						<div class="topic">
-							<p>Enter your topic here:</p>
-							<input type="text" id="" name="topicName" value="" maxlength=""><br />
-						</div>
-						<hr class="margin3">
-						<p>Invited:</p>
+					<div class="people"">
+						<hr class="margin3"/>
+						<p>People to Invite:</p>
 							<select class="addedPeople" multiple="multiple" disabled="disabled">
 								  <option value="f1">f1</option>
 								  <option value="f2">f2</option>
@@ -52,22 +48,26 @@
 								  <option value="f7">f3</option>
 								  <option value="f8">f4</option>
 							</select>
-						
-						<div class="create">
-							<button type="submit" title="create" value="create">Create</button>
-						<!--summit button-->
-						</div>
-					</form>
+					</div>
+					<div>
+						<p>Enter your topic here:</p>
+						<form class="lift:form.ajax?class=topicinput">
+							<input class="lift:TopicIn" id="topic_in"/>
+							<input type="submit" value="Create"/>
+				  		</form>
+				  		<br />
+					</div>
 				</div>
 			</div>	
 		</div>
       
      
       <div class="sidebarMetaLift">
-        <div class="conversations">
+       
+		<div class="friends">
           <div class="title">Friends</div>
           <hr />
-          <ul class="sideList">
+          <ul class="friendslist">
             <li>hello world list item </li>
             <li>hello world list item </li>
             <li>hello world list item </li>
@@ -76,18 +76,19 @@
             <li>hello world list item </li>
           </ul>
         </div>
-          <div class="friendslist">
-          <div class="title">Conversations</div>
-          <hr />
-          <ul class="sideList">
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-          </ul>
-        </div>
+        
+		<div class="convos">
+            <div class="title">Conversations</div>
+            <hr />
+	        <div class="lift:comet?type=Conversations">
+	        
+				<ul class="convolist">
+					<li>Convo 1</li>
+	                <li class="clearable">Convo 2</li>
+	                <li class="clearable">Convo 3</li>
+				</ul>
+	       	</div>
+		</div>
       
       </div>
 
