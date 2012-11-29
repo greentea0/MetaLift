@@ -46,8 +46,8 @@ object TrendServer extends LiftActor {
   def createTrends = {
     // first remove all of the rows , i know this step sucks
     Trend.findAll().foreach( trendToRemove => trendToRemove.delete_!  )
-    //val words = TrendWord.findAll().map(( keyword : TrendWord ) => keyword.word.get)
-    val words = List("blackberry", "iphone", "android")
+    val words = TrendWord.findAll().map(( keyword : TrendWord ) => keyword.word.get)
+    //val words = List("blackberry", "iphone", "android")
     createConversationTrends( words )
     createUserTrends( words )
     
