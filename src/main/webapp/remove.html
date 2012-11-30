@@ -2,7 +2,7 @@
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
        
-    <title>Conversation</title>
+    <title>Remove friend</title>
   </head>
   <body class="lift:content_id=main">
   
@@ -10,7 +10,7 @@
 
 		<div class="createBox">
 			<div class="innerBox">
-				<div class="title">Create a conversation</div>
+				<div class="title">Remove a friend</div>
 				<div class="leftSide">
 					<div class="search">
 						<form class="lift:form.ajax">
@@ -26,62 +26,19 @@
 								  <option value="f3">F3</option>
 								  <option value="f4">F4</option>
 							</select>
-							<button type="submit" title="Search">Add</button>
+							<!--<button type="submit" title="Search">Add</button>-->
+						</form>
+						<form class="lift:Remove.buttonBind">
+						<input id="button" type="button" value="Remove" />
 						</form>
 					</div>
 				</div>
-				<div class="info">
-
-						<div>
-							<p>Enter a topic for this conversation:</p>
-							<form class="lift:form.ajax">
-								<input class="lift:TopicIn" id="topic_in"/>
-								<input type="submit" value="Create"/>
-							</form>
-						</div>
-						<div class="selectedFriends">
-						<p>Friends that will be added to this conversation:</p>
-							<ul>
-								<li>User 1</li>
-								<li>User 2</li>
-								<li>User 3</li>
-								<li>User 4</li>
-							</ul>
-						</div>
-						<div class="Create">
-
-						</div>
-
-				</div>
+				
 			</div>	
 		</div>
       
      
-      <div class="sidebarMetaLift">
-        <div class="conversations">
-          <div class="title">Friends</div>
-          <hr />
-          <ul class="sideList">
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-          </ul>
-        </div>
-         <div class="lift:comet?type=Conversations">
-            <div class="title">Conversations</div>
-	        <div class="convo">
-	              <ul>
-	                  <li class="clearable">Convo 1</li>
-	                  <li class="clearable">Convo 2</li>
-	                  <li class="clearable">Convo 3</li>
-	              </ul>
-	       	</div>
-       	</div>
       
-      </div>
 
     </div>
   </body>

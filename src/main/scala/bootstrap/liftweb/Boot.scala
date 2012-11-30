@@ -73,7 +73,16 @@ class Boot {
          "ChatMine")),*/
          Menu.i("ChatMine") / "chat" >> loggedIn,
          Menu.i("Conversation") / "conversation" >> loggedIn,
-         Menu.i("Trending Now") / "trending" >> loggedIn
+		 Menu.i("Conver_info") / "conver_info" >> loggedIn >> Hidden,
+         Menu.i("Trending Now") / "trending" >> loggedIn,
+		 
+		 Menu.i("Add friends") /"friends" >> loggedIn,
+		 Menu.i("Send Request") / "send" >> loggedIn >> Hidden,
+		 Menu.i("Requestor") / "requestor" >> loggedIn,		 
+		 Menu.i("Comfirm friendship") / "comfirm" >> loggedIn >> Hidden, 
+		 Menu.i("Remove Friend") / "remove" >> loggedIn,		 
+		 Menu.i("Friend removed") / "removeF" >> loggedIn >> Hidden
+		 
     )
     def sitemapMutators = User.sitemapMutator
 
