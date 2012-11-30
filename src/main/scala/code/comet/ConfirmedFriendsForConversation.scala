@@ -8,6 +8,9 @@ import net.liftweb.mapper.By
 import net.liftweb.http.CometActor
 import net.liftweb.http.CometListener
 
+object ConfirmedFriendsForConversation {
+   var l:List[User] = List()
+}
 class ConfirmedFriendsForConversation extends CometActor with CometListener {
    var confirmedConversationFriends: List[User] = List() // private state
 
@@ -20,7 +23,13 @@ class ConfirmedFriendsForConversation extends CometActor with CometListener {
     	      confirmedConversationFriends = confirmedConversationFriends.++(List(user))
     	    }
     	    confirmedConversationFriends.foreach( user  => println(user.firstName.get+" " +user.lastName.get))
+    	    println("before ")
+    	    println(" should be empty " + ConfirmedFriendsForConversation.l)
+    	    ConfirmedFriendsForConversation.l = confirmedConversationFriends
+    	    println("after")
+    	    println(" should have something in it " +ConfirmedFriendsForConversation.l)
     	    reRender()
+    	 
    }
   
   def render = {
