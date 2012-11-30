@@ -7,7 +7,7 @@ import JsCmds._
 import JE._
 
 import code.model._
-
+import java.util.Calendar
 
 object FriendAddSubmit {
   
@@ -17,6 +17,7 @@ object FriendAddSubmit {
 	  var i = Invitation.create
 	  i.requesterID(User.currentUser.get.id.get)
 	  i.friendID(s.toLong)
+	  i.sent(Calendar.getInstance().getTime())
 	  i.save
 	})
 	
