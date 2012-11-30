@@ -6,7 +6,6 @@ import js._
 import JsCmds._
 import JE._
 
-import comet.UserServer
 import net.liftweb.util.Helpers._
 
 
@@ -15,7 +14,7 @@ import net.liftweb.util.Helpers._
  * When click on search, it will look into the user's friend
  * Then return the result in another form
 */
-object SearchUserName {
+class Remove {
 /* 
    * The render method in this case returns a function
    * that transforms NodeSeq => NodeSeq.  In this case,
@@ -24,16 +23,5 @@ object SearchUserName {
    * to the ChatServer and then returns JavaScript which
    * clears the input.
 */
-  def render = SHtml.onSubmit(s => {
-      
-	    UserServer ! s
-	    
-	    
-		
-	}    
-
-  
-  
-  
-  )
+  def buttonBind = "#button [onclick]" #> (RedirectTo("removeF.html")).toJsCmd
 }

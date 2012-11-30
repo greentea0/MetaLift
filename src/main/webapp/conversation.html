@@ -22,45 +22,38 @@
 						</form>
 					</div>
 					<div class="addF">
-						<form class="lift:comet?type=SearchUser">
+						<form class="lift:comet?type=SearchUser lift:form.ajax?">
 						<hr class="margin3"/>
 						<p>Select the names to invite:</p>
-							<select class="addedPeople" multiple="multiple">
-								  <option value="f1">f1</option>
-								  <option value="f2">f2</option>
-								  
+							<select id="addUsers" class="lift:AddedPeopleToConversation" multiple="multiple">
+								  <option class="userselection"  value="dsa"></option>
 							</select>
 							<input type="submit" value="Add">
 						</form>
 					</div>
 				</div>
 				<div class="info">
-					<div class="people"">
-						<lift:snippet type="FindSelectUser:show" form="post">
-				  			<p>Find Friend:</p>
-				  			<ajax:search></ajax:search>
-				   			<ajax:submit></ajax:submit>
-						</lift:snippet>
-						<p>People Invited:</p>
-							<select class="addedPeople" multiple="multiple" disabled="disabled">
-								  <option value="f1">f1</option>
-								  <option value="f2">f2</option>
-								  <option value="f3">f3</option>
-								  <option value="f4">f4</option>
-								  <option value="f5">f5</option>
-								  <option value="f6">f6</option>
-								  <option value="f7">f3</option>
-								  <option value="f8">f4</option>
+					
+					<div class="people">
+						<form class="lift:form.ajax?">
+						<hr class="margin3"/>
+						<p>People to Invite:</p>
+							<select class="lift:comet?type=ConfirmedFriendsForConversation" multiple="multiple" disabled="disabled">
+								  <option class"userconfirmed" value="dsa"></option>
 							</select>
+						</form>
 					</div>
 					<div>
 						<p>Enter your topic here:</p>
-						<form class="lift:form.ajax?class=topicinput">
+						 <form class="lift:form.ajax?">
 							<input class="lift:TopicIn" id="topic_in"/>
-							<input type="submit" value="Create"/>
-				  		</form>
+				  		
 				  		<br />
+				  		 <input type="submit" value="Create"/>
+				    </form>
 					</div>
+
+				   
 				</div>
 			</div>	
 		</div>
