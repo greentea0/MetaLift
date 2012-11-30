@@ -22,11 +22,14 @@ object User extends User with MetaMegaProtoUser[User] {
   // comment this line out to require email validations
   override def skipEmailValidation = true
   
+<<<<<<< HEAD
 
   override def homePage = if ( loggedIn_? ) {
     "/index"
   } else { "/chat" }
 
+=======
+>>>>>>> 16b66bb42efe9e96a7860453b6159478184b38e6
 
   
   

@@ -63,14 +63,20 @@ class Boot {
     // where to search snippet
     LiftRules.addToPackages("code")
 
+	// check if the user is logged in
+	val loggedIn = If(() => User.loggedIn_?,
+      () => RedirectResponse("/user_mgt/login"))
+
     // Build SiteMap
     def sitemap = SiteMap(
       Menu.i("Home") / "index" >> User.AddUserMenusAfter, // the simple way to declare a menu
 
-      Menu(Loc("Chat", Link(List("chat"), true, "/chat"), "ChatMine", Hidden)),
-	  Menu("Conversation") / "conversation"
-	  //Menu("AjaxForm") / "ajaxform"
-	  
+       	/*Menu(Loc("Chat", Link(List("chat"), true, "/chat"), 
+         "ChatMine")),*/
+         Menu.i("ChatMine") / "chat" >> loggedIn,
+         Menu.i("Conversation") / "conversation" >> loggedIn,
+         Menu.i("Trending Now") / "trending" >> loggedIn
+
     )
     def sitemapMutators = User.sitemapMutator
 
