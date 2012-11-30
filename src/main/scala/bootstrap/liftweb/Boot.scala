@@ -82,7 +82,8 @@ class Boot {
 		 Menu.i("Requestor") / "requestor" >> loggedIn,		 
 		 Menu.i("Comfirm friendship") / "comfirm" >> loggedIn >> Hidden, 
 		 Menu.i("Remove Friend") / "remove" >> loggedIn,		 
-		 Menu.i("Friend removed") / "removeF" >> loggedIn >> Hidden
+		 Menu.i("Friend removed") / "removeF" >> loggedIn >> Hidden,
+     Menu.i("SignIn SignUp") / "signInSignUp"
 		 
     )
     def sitemapMutators = User.sitemapMutator
