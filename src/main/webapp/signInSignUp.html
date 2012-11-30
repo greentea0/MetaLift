@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+       
+    <title>SignIn SignUp</title>
+  </head>
+  <body class="lift:content_id=main">
+    <div id="main" class="lift:surround?with=default;at=content">
+      
+      <div class="signInSignUp">
+      
+     <!-- the behavior of the div -->
+     <div class="centercontent">
+        <!--<div class="lift:comet?type=Trends">-->
+        <div class="lift:SignIn">
+            <form class="lift:form.ajax">
+            Already have an account? | Sign In!<br>
+            <hr>
+				<input name="email" value="Email Address"
+				onfocus="if(this.value==this.defaultValue)this.value=''" 
+				onblur="if(this.value=='')this.value=this.defaultValue"><br>
+				
+				<input name="password" value="Password" 
+				onfocus="if(this.value==this.defaultValue)this.value=''" 
+				onblur="if(this.value=='')this.value=this.defaultValue"><br>
+				
+				<a href="/user_mgt/lost_password">Forgot Password?</a>
+				<input type="submit" value="Sign In">
+			</form>
+		</div>
+		<br>
+		<div class="lift:SignUp">
+            <form class="lift:form.ajax">
+            New to ChatMine? | Sign Up!<br>
+            <hr>
+				<input name="fullName" value="Full Name"
+				onfocus="if(this.value==this.defaultValue)this.value=''" 
+				onblur="if(this.value=='')this.value=this.defaultValue"><br>
+				
+				<input name="email" value="Email Address"
+				onfocus="if(this.value==this.defaultValue)this.value=''" 
+				onblur="if(this.value=='')this.value=this.defaultValue"><br>
+				
+				<input name="password" value="Password" 
+				onfocus="if(this.value==this.defaultValue)this.value=''" 
+				onblur="if(this.value=='')this.value=this.defaultValue"><br>
+				
+				<input type="submit" value="Register">
+			</form>
+		</div>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
+
