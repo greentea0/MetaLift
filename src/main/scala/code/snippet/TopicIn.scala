@@ -9,9 +9,9 @@ import comet.ConvoServer
 import code.model.History
 import code.model.Conversation
 import java.util.Calendar
-
-
 import code.model.User
+import code.comet.ConfirmedFriendsForConversation
+import code.comet.ConfirmedFriendsForConversation
 
 /*
  * A snippet that will create a conversation with selected users and topic entered
@@ -30,6 +30,8 @@ object TopicIn {
   def render = SHtml.onSubmit(topic => {
         
      if (!topic.trim.isEmpty()){ 
+    	  println("fdsfdsf")
+          println("[TEST] "+ConfirmedFriendsForConversation.l.head.firstName.get)
 		  var newConvo: Conversation =  Conversation.create
 		  newConvo.topic(topic.trim())
 		  newConvo.startedBy(User.currentUser)
