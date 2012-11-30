@@ -34,7 +34,7 @@ object TopicIn {
 		  newConvo.topic(topic.trim())
 		  newConvo.startedBy(User.currentUser)
 		  newConvo.startedAt(Calendar.getInstance().getTime())
-		  newConvo.participants += User.currentUser.get // no change
+		  newConvo.participants += User.currentUser.get
 
 		  newConvo.save
 		  
@@ -47,6 +47,10 @@ object TopicIn {
 		  convo.save
   }
   
+  private def changeConversation(id: Long) = {
+    ConvoServer ! id
+  }
+  
   def render = SHtml.onSubmit(topic => {
      var usersToAdd: List[User] = ConfirmedFriendsForConversation.l
      
@@ -55,7 +59,7 @@ object TopicIn {
 		  addParticipants(conversation, usersToAdd)
      }
      
-     ConvoServer ! topic
+     ConvoServer ! -1L
      
 	 SetValById("topic_in", "")
   })

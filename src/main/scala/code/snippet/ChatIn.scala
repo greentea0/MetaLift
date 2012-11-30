@@ -20,7 +20,7 @@ object ChatIn {
    * clears the input.
    */
   def render = SHtml.onSubmit(s => {
-
+     
      if (!s.trim.isEmpty()){
           var msg = Message.create
           msg.payload(s.trim())
@@ -28,10 +28,14 @@ object ChatIn {
 	      msg.conversation(User.currentUser.get.currentConversation.get)
 	      msg.sender(User.currentUser.get.id.get)
 	      msg.save
-	     
+	      
+	      Thread.sleep(500)
+	      
   	}
+    
     ChatServer ! s
-   
-    SetValById("chat_in", "")    
+    
+    SetValById("chat_in", "")
+        
   })
 }

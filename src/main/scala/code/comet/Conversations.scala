@@ -17,22 +17,26 @@ import net.liftweb.http.js.JE
  * the changes are automatically reflected in the browser.
  */
 class Conversations extends CometActor with CometListener {
-  private var convos: List[String] = List() // private state
+  private var conversations: List[Conversation] = User.currentUser.get.conversations.toList // private state
 
   
   def registerWith = ConvoServer
 
   
   override def lowPriority = {
-      case s: String => {
+      case -1L => {
           // grab all the conversations for the current user for their current conversation
-		  val conversations = User.currentUser.get.conversations.toList
-	      
+		  conversations = User.currentUser.get.conversations.toList
 	      // put those conversations into the convo list window
-	      convos = conversations.map(( c : Conversation ) =>  c.topic.get)
+	      reRender()
+      }case l: Long => {
+         var currUser = User.currentUser.get
+    	  currUser.currentConversation(l)
+    	  currUser.save
+        reRender()
       }
-      reRender()
+      
   }
 
-  def render = "li *" #> convos & ClearClearable
+  def render = " option " #> conversations.map{ c => " option * " #> (c.topic.get) & "* [value]" #> c.id}
 }
