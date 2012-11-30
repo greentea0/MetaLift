@@ -14,6 +14,10 @@
 				<div class="title">Create a conversation</div>
 				<hr class="margin3"/>
 				<div class="leftSide">
+					<div class="topic">
+							<p>Enter your topic here:</p>
+							<input type="text" id="" name="topicName" value="" maxlength=""><br />
+						</div>
 					<div class="search">
 					<p>Type the person's name:</p>
 						<form class="lift:form.ajax?class=searchuserinput">
@@ -30,14 +34,19 @@
 								  <option value="f2">f2</option>
 								  
 							</select>
-							<input type="submit" value="Add">
+							<input class="lift:Add.buttonBind" id="button" type="button" value="Add">
 						</form>
+						
 					</div>
 				</div>
 				<div class="info">
 					<div class="people"">
-						<hr class="margin3"/>
-						<p>People to Invite:</p>
+						<lift:snippet type="FindSelectUser:show" form="post">
+				  			<p>Find Friend:</p>
+				  			<ajax:search></ajax:search>
+				   			<ajax:submit></ajax:submit>
+						</lift:snippet>
+						<p>People Invited:</p>
 							<select class="addedPeople" multiple="multiple" disabled="disabled">
 								  <option value="f1">f1</option>
 								  <option value="f2">f2</option>
@@ -62,35 +71,7 @@
 		</div>
       
      
-      <div class="sidebarMetaLift">
-       
-		<div class="friends">
-          <div class="title">Friends</div>
-          <hr />
-          <ul class="friendslist">
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-          </ul>
-        </div>
-        
-		<div class="convos">
-            <div class="title">Conversations</div>
-            <hr />
-	        <div class="lift:comet?type=Conversations">
-	        
-				<ul class="convolist">
-					<li>Convo 1</li>
-	                <li class="clearable">Convo 2</li>
-	                <li class="clearable">Convo 3</li>
-				</ul>
-	       	</div>
-		</div>
       
-      </div>
 
     </div>
   </body>
