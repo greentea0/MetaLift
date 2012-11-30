@@ -8,7 +8,7 @@ import JE._
 import net.liftweb.util.Helpers._
 import code.model.FriendsList
 import net.liftweb.mapper.By
-import code.model.User
+import code.model._
 import net.liftweb.mapper.ByList
 import java.util.Calendar
 
@@ -29,6 +29,24 @@ class FriendAcceptSubmit {
 */
  // def buttonBind = "#button [onclick]" #> (RedirectTo("ConfirmAcceptFriendRequest.html")).toJsCmd
 def render = SHtml.onSubmit(s => {
+  
 
-
+	  var invite = Invitation.find(By(Invitation.requesterID,s.toLong), By(Invitation.friendID, User.currentUser.get.id.get)).get
+	  
+	  var theirFriendship = Friendship.create	
+	  
+	  theirFriendship.user1(invite.requesterID.get)
+	  theirFriendship.user2(invite.friendID.get)
+	  theirFriendship.friended(Calendar.getInstance().getTime())
+	  theirFriendship.save
+	  
+	  var yourFriendship = Friendship.create	
+	  
+	  yourFriendship.user1(invite.friendID.get)
+	  yourFriendship.user2(invite.requesterID.get)
+	  yourFriendship.friended(Calendar.getInstance().getTime())
+	  yourFriendship.save
+	  
+	  invite.delete_!
+})
 }
