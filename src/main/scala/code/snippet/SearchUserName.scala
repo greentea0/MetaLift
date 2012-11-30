@@ -27,12 +27,12 @@ object SearchUserName {
   def render = SHtml.onSubmit(s => {
       
 	    UserServer ! s
-		class Add{
-
-		def buttonBind = "#button [onclick]" #> (RedirectTo("conver_info.html")).toJsCmd
+	    
+	    
+		
 	}    
 
-  }
+  
   
   
   )
