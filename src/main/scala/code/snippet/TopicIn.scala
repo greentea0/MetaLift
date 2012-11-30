@@ -10,7 +10,7 @@ import code.model._
 import java.util.Calendar
 import code.model.User
 import code.comet.ConfirmedFriendsForConversation
-import code.comet.ConfirmedFriendsForConversation
+
 
 /*
  * A snippet that will create a conversation with selected users and topic entered
