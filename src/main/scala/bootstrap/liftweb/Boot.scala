@@ -16,7 +16,6 @@ import java.sql.Connection
 import java.sql.DriverManager
 import code.comet.TrendServer
 
-
 object DBVendor extends ConnectionManager with Logger {
   def newConnection(name: ConnectionIdentifier): Box[Connection] = {
     try {
@@ -59,7 +58,7 @@ class Boot {
     // Use Lift's Mapper ORM to populate the database
     // you don't need to use Mapper to use Lift... use
     // any ORM you want
-    Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, Invitation, ConversationParticipants, FriendsList, IgnoredList, Message)
+    Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, ConversationTags, FriendsList, History, IgnoredList, Message)
 
     // where to search snippet
     LiftRules.addToPackages("code")
@@ -78,12 +77,12 @@ class Boot {
          Menu.i("Conversation") / "conversation" >> loggedIn,
 		 Menu.i("Conver_info") / "conver_info" >> loggedIn >> Hidden,
 		 
-		 Menu.i("Add friends") /"friends" >> loggedIn,
-		 Menu.i("Send Request") / "send" >> loggedIn >> Hidden,
-		 Menu.i("Requestor") / "requestor" >> loggedIn,		 
-		 Menu.i("Comfirm friendship") / "comfirm" >> loggedIn >> Hidden, 
-		 Menu.i("Remove Friend") / "remove" >> loggedIn,		 
-		 Menu.i("Friend removed") / "removeF" >> loggedIn >> Hidden
+		 Menu.i("Add friends") /"CreateFriendRequest" >> loggedIn,
+		 Menu.i("Send Request") / "ConfirmCreateFriendRequest" >> loggedIn >> Hidden,
+		 Menu.i("Requestor") / "AcceptFriendRequest" >> loggedIn,		 
+		 Menu.i("Comfirm friendship") / "ConfirmAcceptFriendRequest" >> loggedIn >> Hidden, 
+		 Menu.i("Remove Friend") / "RemoveFriend" >> loggedIn,		 
+		 Menu.i("Friend removed") / "RemoveFriendConfirmation" >> loggedIn >> Hidden
 		 
     )
     def sitemapMutators = User.sitemapMutator
@@ -112,10 +111,8 @@ class Boot {
     LiftRules.loggedInTest = Full(() => User.loggedIn_?)
     // on startup we want to start calculating trends every hour
     // we also need to make sure we stop this process when the server goes offline
-    TrendServer ! TrendServer.DoIt
-
+     TrendServer ! TrendServer.DoIt
     LiftRules.unloadHooks.append( () => TrendServer ! TrendServer.Stop )
-
     // Use HTML5 for rendering
     LiftRules.htmlProperties.default.set((r: Req) =>
       new Html5Properties(r.userAgent))    
