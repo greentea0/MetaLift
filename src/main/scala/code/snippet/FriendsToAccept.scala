@@ -9,19 +9,22 @@ import code.lib._
 import Helpers._
 import code.model.FriendsList
 import net.liftweb.mapper.By
-import code.model.User
+import code.model._
 
 class FriendsToAccept {
-	def render = {
-	  val list = List()
+	
+  def render = {
 	  
-	val li = FriendsList.findAll(By( FriendsList.friendID, User.currentUser.get.id.get))
-	val requestors = li.map( i => User.find(By( User.id, i.requesterID.get)).get)
-    val names = requestors.map( (user : User ) => user.firstName.get+" " +user.lastName.get)
-    val ids = li.map( x => x.id.get)
-    val t = ids.zip(names)
-    " option " #> t.map
-    { 
-      d => " option * " #> d._2 & "* [value]" #> d._1}
+	//val li : List[User] = User.currentUser.get.friends.get
+	
+	val invites: List[Invitation] = Invitation.findAll(By(Invitation.friendID, User.currentUser.get.id.get ))
+	
+	val requesters = invites.map( i => User.find(By( User.id, i.requesterID.get)).get)
+   
+	val list = requesters.map( (user : User ) => (user.firstName.get + " " + user.lastName.get, user.id.get ) )
+
+    
+    " option " #> requesters.map{r => " option * " #> (r.firstName.get + " " + r.lastName.get) & "* [value]" #> r.id}
 	}
+ 
 }
