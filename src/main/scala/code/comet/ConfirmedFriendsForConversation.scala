@@ -23,11 +23,7 @@ class ConfirmedFriendsForConversation extends CometActor with CometListener {
     	      confirmedConversationFriends = confirmedConversationFriends.++(List(user))
     	    }
     	    confirmedConversationFriends.foreach( user  => println(user.firstName.get+" " +user.lastName.get))
-    	    println("before ")
-    	    println(" should be empty " + ConfirmedFriendsForConversation.l)
     	    ConfirmedFriendsForConversation.l = confirmedConversationFriends
-    	    println("after")
-    	    println(" should have something in it " +ConfirmedFriendsForConversation.l)
     	    reRender()
     	 
    }

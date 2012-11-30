@@ -43,6 +43,6 @@ class SearchUser extends CometActor with CometListener {
    */
    
   def render = {
-   "option" #> usersFound.map{ d => "option *" #> (d.firstName + "  " + d.lastName) & "* [userid]" #> d.id}
+   "option" #> usersFound.map{ d => "option *" #> (d.firstName + "  " + d.lastName) & "* [value]" #> d.id}
   }
 }
