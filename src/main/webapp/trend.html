@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+       
+    <title>Trends</title>
+  </head>
+  <body class="lift:content_id=main">
+  
+    <div id="main" class="lift:surround?with=default;at=content">
+		
+		<div class="createBox">
+			<div class="innerBox">
+				<div class="title">Create a Trend</div>
+				<hr class="margin3"/>
+				<div class="leftSide">
+					<div class="search">
+					<p>Enter a Trend:</p>
+						<form class="lift:form.ajax?class=searchuserinput">
+							<input class="lift:SearchUserName">
+							<input type="submit" title="Add Keyword">
+						</form>
+						<!-- When we add a word, we add it to the trends, when we remove the word, we remove it and all of the trends wihich use this word !-->
+					</div>
+					<div class="addF">
+						<form class="lift:comet?type=SearchUser lift:form.ajax?">
+						<hr class="margin3"/>
+						<p>Select a Trend to remove</p>
+							<select id="addUsers" class="lift:AddedPeopleToConversation" multiple="multiple">
+								  <option class="userselection"  value="dsa"></option>
+							</select>
+							<input type="submit" value="Remove">
+						</form>
+					</div>
+				</div>
+			</div>	
+		</div>
+    </div>
+  </body>
+</html>
+

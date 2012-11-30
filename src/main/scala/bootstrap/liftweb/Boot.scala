@@ -82,7 +82,8 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
 		 Menu.i("Requestor") / "AcceptFriendRequest" >> loggedIn,		 
 		 Menu.i("Comfirm friendship") / "ConfirmAcceptFriendRequest" >> loggedIn >> Hidden, 
 		 Menu.i("Remove Friend") / "RemoveFriend" >> loggedIn,		 
-		 Menu.i("Friend removed") / "RemoveFriendConfirmation" >> loggedIn >> Hidden
+		 Menu.i("Friend removed") / "RemoveFriendConfirmation" >> loggedIn >> Hidden,
+		 Menu.i("Trends") / "Trend" >> loggedIn
 		 
     )
     def sitemapMutators = User.sitemapMutator
