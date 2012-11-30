@@ -25,7 +25,7 @@ object ChatIn {
           var msg = Message.create
           msg.payload(s.trim())
 	      msg.dateSent( Calendar.getInstance().getTime())
-	      msg.conversation(1)
+	      msg.conversation(User.currentUser.get.currentConversation.get)
 	      msg.sender(User.currentUser.get.id.get)
 	      msg.save
 	     
