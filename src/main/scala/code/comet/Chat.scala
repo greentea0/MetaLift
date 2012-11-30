@@ -34,8 +34,10 @@ class Chat extends CometActor with CometListener {
   	case s: String => {
 	          // grab all the messages for the current user for their current conversation
   		try {
-  			val messages = Message.findAll( By( Message.conversation,
-		    User.currentUser.get.currentConversation.get),PreCache(Message.sender))
+  		    val convoId = User.currentUser.get.currentConversation.get
+  		    val conversation: Conversation = Conversation.findByKey(convoId).get
+  			val messages: List[Message] = conversation.messages.toList
+		    
 		      
 		          // put those messages into the chat window
 		    msgs = messages.map(( m : Message ) =>

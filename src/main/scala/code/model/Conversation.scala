@@ -16,7 +16,7 @@ class Conversation extends LongKeyedMapper[Conversation] with OneToMany[Long, Co
   object startedAt extends MappedDateTime( this )
 
   object messages extends MappedOneToMany(Message, Message.conversation, OrderBy(Message.id, Ascending))
-  object tags extends MappedManyToMany(ConversationTags, ConversationTags.conversation, ConversationTags.tag, Tag)
+  object participants extends MappedManyToMany(ConversationParticipants, ConversationParticipants.conversation, ConversationParticipants.participant, User)
 }
 
 object Conversation extends Conversation with LongKeyedMetaMapper[Conversation] {

@@ -3,6 +3,8 @@ package comet
 import net.liftweb._
 import http._
 import actor._
+
+
 /**
  * A singleton that provides chat features to all clients.
  * It's an Actor so it's thread-safe because only one
@@ -10,6 +12,8 @@ import actor._
  */
 object ChatServer extends LiftActor with ListenerManager {
   private var message = "" // private state
+  
+  
 
   def createUpdate = message
   /**
@@ -18,6 +22,7 @@ object ChatServer extends LiftActor with ListenerManager {
    * to the ChatServer.  We append them to our Vector of
    * messages, and then update all the listeners.
    */
+  
   override def lowPriority = {
     case s: String => message = s; updateListeners()
   }
