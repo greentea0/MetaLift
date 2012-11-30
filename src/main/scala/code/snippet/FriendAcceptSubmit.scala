@@ -5,8 +5,12 @@ import http._
 import js._
 import JsCmds._
 import JE._
-
 import net.liftweb.util.Helpers._
+import code.model.FriendsList
+import net.liftweb.mapper.By
+import code.model.User
+import net.liftweb.mapper.ByList
+import java.util.Calendar
 
 
 /*
@@ -14,7 +18,7 @@ import net.liftweb.util.Helpers._
  * When click on search, it will look into the user's friend
  * Then return the result in another form
 */
-class Send {
+class FriendAcceptSubmit {
 /* 
    * The render method in this case returns a function
    * that transforms NodeSeq => NodeSeq.  In this case,
@@ -23,5 +27,9 @@ class Send {
    * to the ChatServer and then returns JavaScript which
    * clears the input.
 */
-  def buttonBind = "#button [onclick]" #> (RedirectTo("send.html")).toJsCmd
+ // def buttonBind = "#button [onclick]" #> (RedirectTo("ConfirmAcceptFriendRequest.html")).toJsCmd
+def render = SHtml.onSubmit(s => {
+	
+	  })
+
 }

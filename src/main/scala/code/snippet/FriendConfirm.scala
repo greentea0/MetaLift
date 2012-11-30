@@ -14,7 +14,7 @@ import net.liftweb.util.Helpers._
  * When click on search, it will look into the user's friend
  * Then return the result in another form
 */
-class Send {
+class FriendConfirm {
 /* 
    * The render method in this case returns a function
    * that transforms NodeSeq => NodeSeq.  In this case,
@@ -23,5 +23,5 @@ class Send {
    * to the ChatServer and then returns JavaScript which
    * clears the input.
 */
-  def buttonBind = "#button [onclick]" #> (RedirectTo("send.html")).toJsCmd
+  def buttonBind = "#button [onclick]" #> (RedirectTo("chat.html")).toJsCmd
 }
