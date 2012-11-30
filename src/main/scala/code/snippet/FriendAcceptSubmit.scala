@@ -29,7 +29,6 @@ class FriendAcceptSubmit {
 */
  // def buttonBind = "#button [onclick]" #> (RedirectTo("ConfirmAcceptFriendRequest.html")).toJsCmd
 def render = SHtml.onSubmit(s => {
-	
-	  })
+
 
 }
