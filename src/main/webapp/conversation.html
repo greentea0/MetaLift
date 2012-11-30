@@ -39,8 +39,34 @@
 						
 					</div>
 				</div>
-				
-			</div>
+				<div class="info">
+					<div class="people"">
+						<lift:snippet type="FindSelectUser:show" form="post">
+				  			<p>Find Friend:</p>
+				  			<ajax:search></ajax:search>
+				   			<ajax:submit></ajax:submit>
+						</lift:snippet>
+						<p>People Invited:</p>
+							<select class="addedPeople" multiple="multiple" disabled="disabled">
+								  <option value="f1">f1</option>
+								  <option value="f2">f2</option>
+								  <option value="f3">f3</option>
+								  <option value="f4">f4</option>
+								  <option value="f5">f5</option>
+								  <option value="f6">f6</option>
+								  <option value="f7">f3</option>
+								  <option value="f8">f4</option>
+							</select>
+					</div>
+					<div>
+						<p>Enter your topic here:</p>
+						<form class="lift:form.ajax?class=topicinput">
+							<input class="lift:TopicIn" id="topic_in"/>
+							<input type="submit" value="Create"/>
+				  		</form>
+				  		<br />
+					</div>
+				</div>
 			</div>	
 		</div>
       

@@ -11,6 +11,7 @@ import Loc._
 import mapper._
 import code.model._
 import net.liftmodules.JQueryModule
+import net.liftweb.widgets
 import java.sql.Connection
 import java.sql.DriverManager
 import code.comet.TrendServer
@@ -51,6 +52,7 @@ class Boot {
       LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
 
       DB.defineConnectionManager(DefaultConnectionIdentifier, DBVendor)
+	  net.liftweb.widgets.autocomplete.AutoComplete.init
     }
 
     // Use Lift's Mapper ORM to populate the database
@@ -74,7 +76,6 @@ class Boot {
          Menu.i("ChatMine") / "chat" >> loggedIn,
          Menu.i("Conversation") / "conversation" >> loggedIn,
 		 Menu.i("Conver_info") / "conver_info" >> loggedIn >> Hidden,
-         Menu.i("Trending Now") / "trending" >> loggedIn,
 		 
 		 Menu.i("Add friends") /"friends" >> loggedIn,
 		 Menu.i("Send Request") / "send" >> loggedIn >> Hidden,
