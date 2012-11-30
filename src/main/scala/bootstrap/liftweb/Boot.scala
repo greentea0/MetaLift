@@ -74,8 +74,7 @@ class Boot {
        	/*Menu(Loc("Chat", Link(List("chat"), true, "/chat"), 
          "ChatMine")),*/
          Menu.i("ChatMine") / "chat" >> loggedIn,
-         Menu.i("Conversation") / "conversation" >> loggedIn,
-         Menu.i("Trending Now") / "trending" >> loggedIn
+         Menu.i("Conversation") / "conversation" >> loggedIn
 
     )
     def sitemapMutators = User.sitemapMutator
