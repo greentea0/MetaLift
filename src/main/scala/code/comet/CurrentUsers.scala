@@ -24,8 +24,7 @@ class CurrentUsers extends CometActor with CometListener {
   
   override def lowPriority = {
       case s:String => {
-		  val conversations = Conversation.findAll()
-	      val conversationID:Long = User.currentUser.open_!.currentConversation.get
+	      val conversationID:Long = User.currentUser.get.currentConversation.get
 	      val users = User.findAll(By( User.currentConversation, conversationID))
 	      users.foreach( usr => println( usr.firstName.get + " " + usr.lastName.get))
 	      userNames = users.map( ( user : User ) => user.firstName.get + " " + user.lastName.get)

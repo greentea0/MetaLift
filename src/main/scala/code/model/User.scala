@@ -33,7 +33,7 @@ object User extends User with MetaMegaProtoUser[User] {
  */
 class User extends MegaProtoUser[User] with ManyToMany {
   def getSingleton = User // what's the "meta" server
-
+  
   object friendsList extends MappedLongForeignKey( this, FriendsList )
   object currentConversation extends MappedLongForeignKey( this, Conversation )
   object dateRegistered extends MappedDateTime( this )
@@ -42,7 +42,7 @@ class User extends MegaProtoUser[User] with ManyToMany {
   object status extends MappedInt( this )
   object nickname extends MappedString( this, 140 )
   object conversations extends MappedManyToMany( ConversationParticipants, ConversationParticipants.participant, ConversationParticipants.conversation, Conversation)
-  
+  object friends extends MappedManyToMany( Friendship, Friendship.user1, Friendship.user2, User)
   
   // define an additional field for a personal essay
   object textArea extends MappedTextarea(this, 2048) {

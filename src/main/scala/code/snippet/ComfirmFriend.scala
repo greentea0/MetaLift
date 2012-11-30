@@ -7,8 +7,7 @@ import JsCmds._
 import JE._
 import net.liftweb.mapper._
 import net.liftweb.mapper.MappedLongIndex
-import code.model.User
-import code.model.FriendsList
+import code.model._
 import java.util.Calendar
 
 object ComfirmFriend {
@@ -19,10 +18,24 @@ object ComfirmFriend {
 	def render = SHtml.onSubmit(s => {
 	  
 	 
-	  var newFriend = FriendsList.find( By(FriendsList.requesterID, s.toLong)).get
-	  newFriend.joined( Calendar.getInstance().getTime())
+	  var invite = Invitation.find(By(Invitation.requesterID,s.toLong), By(Invitation.friendID, User.currentUser.get.id.get)).get
 	  
-
+	  var theirFriendship = Friendship.create	
+	  
+	  theirFriendship.user1(invite.requesterID.get)
+	  theirFriendship.user2(invite.friendID.get)
+	  theirFriendship.friended(Calendar.getInstance().getTime())
+	  theirFriendship.save
+	  
+	  var yourFriendship = Friendship.create	
+	  
+	  yourFriendship.user1(invite.friendID.get)
+	  yourFriendship.user2(invite.requesterID.get)
+	  yourFriendship.friended(Calendar.getInstance().getTime())
+	  yourFriendship.save
+	  
+	  invite.delete_!
+	  
 	  })
 
 }
