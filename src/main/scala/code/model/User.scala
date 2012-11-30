@@ -31,19 +31,17 @@ object User extends User with MetaMegaProtoUser[User] {
 /**
  * An O-R mapped "User" class that includes first name, last name, password and we add a "Personal Essay" to it
  */
-class User extends MegaProtoUser[User] {
+class User extends MegaProtoUser[User] with ManyToMany {
   def getSingleton = User // what's the "meta" server
 
   object friendsList extends MappedLongForeignKey( this, FriendsList )
-  object chatHistory extends MappedLongForeignKey( this, History )
+  object currentConversation extends MappedLongForeignKey( this, Conversation )
   object dateRegistered extends MappedDateTime( this )
   object dateLoggedOn extends MappedDateTime( this )
   object dateLoggedOff extends MappedDateTime( this )
   object status extends MappedInt( this )
   object nickname extends MappedString( this, 140 )
-  object currentConversation extends MappedLongForeignKey( this, Conversation ){
-  override def defaultValue = 1L;
-  }
+  object conversations extends MappedManyToMany( ConversationParticipants, ConversationParticipants.participant, ConversationParticipants.conversation, Conversation)
   
   
   // define an additional field for a personal essay

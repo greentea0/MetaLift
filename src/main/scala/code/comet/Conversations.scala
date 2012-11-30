@@ -26,7 +26,7 @@ class Conversations extends CometActor with CometListener {
   override def lowPriority = {
       case s: String => {
           // grab all the conversations for the current user for their current conversation
-		  val conversations = Conversation.findAll()
+		  val conversations = User.currentUser.get.conversations.toList
 	      
 	      // put those conversations into the convo list window
 	      convos = conversations.map(( c : Conversation ) =>  c.topic.get)

@@ -6,8 +6,7 @@ import js._
 import JsCmds._
 import JE._
 import comet.ConvoServer
-import code.model.History
-import code.model.Conversation
+import code.model._
 import java.util.Calendar
 
 
@@ -27,15 +26,33 @@ object TopicIn {
    * to the ChatServer and then returns JavaScript which
    * clears the input.
 */
-  def render = SHtml.onSubmit(topic => {
-        
-     if (!topic.trim.isEmpty()){ 
-		  var newConvo: Conversation =  Conversation.create
+  private def createConversation(topic: String) = {
+
+		  var newConvo: Conversation = Conversation.create
 		  newConvo.topic(topic.trim())
 		  newConvo.startedBy(User.currentUser)
 		  newConvo.startedAt(Calendar.getInstance().getTime())
+		  newConvo.participants += User.currentUser.get // no change
+
 		  newConvo.save
+		  
+		  newConvo
+		 
+  }
+  
+  private def addParticipants(convo: Conversation, users: List[User]) = {
+    	  users.foreach(user => convo.participants += user)
+		  convo.save
+  }
+  
+  def render = SHtml.onSubmit(topic => {
+     var usersToAdd: List[User] = List(User.findByKey(2L).get, User.findByKey(3L).get)
+     
+     if (!topic.trim.isEmpty()){ 
+		  var conversation: Conversation =  createConversation(topic)
+		  addParticipants(conversation, usersToAdd)
      }
+     
      ConvoServer ! topic
      
 	 SetValById("topic_in", "")
