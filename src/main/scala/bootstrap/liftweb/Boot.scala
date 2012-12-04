@@ -65,8 +65,8 @@ class Boot {
 
 	// check if the user is logged in
 	val loggedIn = If(() => User.loggedIn_?,
-      () => RedirectResponse("/user_mgt/login"))
-
+      () => RedirectResponse("/index"))
+	
     // Build SiteMap
     def sitemap = SiteMap(
       Menu.i("Home") / "index" >> User.AddUserMenusAfter, // the simple way to declare a menu
@@ -83,7 +83,7 @@ class Boot {
 		 Menu.i("Comfirm friendship") / "comfirm" >> loggedIn >> Hidden, 
 		 Menu.i("Remove Friend") / "remove" >> loggedIn,		 
 		 Menu.i("Friend removed") / "removeF" >> loggedIn >> Hidden,
-     Menu.i("SignIn SignUp") / "signInSignUp"
+    	 Menu.i("SignIn SignUp") / "signInSignUp"
 		 
     )
     def sitemapMutators = User.sitemapMutator
