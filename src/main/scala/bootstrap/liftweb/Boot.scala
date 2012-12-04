@@ -65,7 +65,7 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
 
 	// check if the user is logged in
 	val loggedIn = If(() => User.loggedIn_?,
-      () => RedirectResponse("/user_mgt/login"))
+      () => RedirectResponse("/index"))
 
     // Build SiteMap
     def sitemap = SiteMap(
@@ -75,13 +75,16 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
          "ChatMine")),*/
          Menu.i("ChatMine") / "chat" >> loggedIn,
          Menu.i("Conversation") / "conversation" >> loggedIn,
-		 Menu.i("Conver_info") / "conver_info" >> loggedIn >> Hidden,
 		 
-		 Menu.i("Add friends") /"CreateFriendRequest" >> loggedIn,
+         
+         Menu.i("Add friends") /"CreateFriendRequest" >> loggedIn,    
+         Menu.i("Requestor") / "AcceptFriendRequest" >> loggedIn,
+         Menu.i("Remove Friend") / "RemoveFriend" >> loggedIn,
+		 
 		 Menu.i("Send Request") / "ConfirmCreateFriendRequest" >> loggedIn >> Hidden,
-		 Menu.i("Requestor") / "AcceptFriendRequest" >> loggedIn,		 
+		 		 
 		 Menu.i("Comfirm friendship") / "ConfirmAcceptFriendRequest" >> loggedIn >> Hidden, 
-		 Menu.i("Remove Friend") / "RemoveFriend" >> loggedIn,		 
+		 	 
 		 Menu.i("Friend removed") / "RemoveFriendConfirmation" >> loggedIn >> Hidden,
 		 Menu.i("Trends") / "trends" >> loggedIn
 		 

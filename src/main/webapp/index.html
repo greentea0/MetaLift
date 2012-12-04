@@ -7,43 +7,47 @@
   </head>
   <body class="lift:content_id=main">
     <div id="main" class="lift:surround?with=default;at=content">
-
-      
-     <div>
+	<div class="welcome">
+		Welcome to ChatMine!<br />
+		Create your own community by chatting with your friends and others.
+		
+    </div> 
+     <div class="signForm">
 			<div class="signIn">
-	            <form action="/user_mgt/login" method="post">
+	            <form action="/user_mgt/login" method="post" class="signInForm">
 	            Already have an account? | Sign In!<br>
 	            <hr>
-					<input name="username" value="Email Address"
+					<input name="username" value="Email Address" class="sign"
 					onfocus="if(this.value==this.defaultValue)this.value=''" 
 					onblur="if(this.value=='')this.value=this.defaultValue"/><br>
 	
-					<input name="password" type="password"
+					<input name="password" type="password" class="signPW" 
 					onfocus="if(this.value==this.defaultValue)this.value=''" 
-					onblur="if(this.value=='')this.value=this.defaultValue"/><br>
-	
+					onblur="if(this.value=='')this.value=this.defaultValue"/>
+					
+					<input type="submit" value="Sign In" >
 					<a href="/user_mgt/lost_password">Forgot Password?</a>
-					<input type="submit" value="Sign In">
+					
 				</form>
 			</div>
 			<br>
 			<div class="signUp">
-	            <form class="lift:form.ajax">
+	            <form action="/user_mgt/sign_up" method="post" class="signUpForm">
 	            New to ChatMine? | Sign Up!<br>
 	            <hr>
-					<input name="fullName" value="Full Name"
+					<input name="fullName" value="Full Name" class="sign"
 					onfocus="if(this.value==this.defaultValue)this.value=''" 
 					onblur="if(this.value=='')this.value=this.defaultValue"><br>
 	
-					<input name="email" value="Email Address"
+					<input name="email" value="Email Address" class="sign"
 					onfocus="if(this.value==this.defaultValue)this.value=''" 
 					onblur="if(this.value=='')this.value=this.defaultValue"><br>
 	
-					<input name="password" value="Password" 
+					<input name="password" value="Password" class="signPW"
 					onfocus="if(this.value==this.defaultValue)this.value=''" 
-					onblur="if(this.value=='')this.value=this.defaultValue"><br>
+					onblur="if(this.value=='')this.value=this.defaultValue">
 	
-					<input type="submit" value="Register">
+					<input type="submit" value="Sign up">
 				</form>
 			</div>
       </div>
