@@ -12,6 +12,7 @@ import mapper._
 import code.model._
 import net.liftmodules.JQueryModule
 import net.liftweb.widgets
+import net.liftweb.widgets.flot._
 import java.sql.Connection
 import java.sql.DriverManager
 import code.comet.TrendServer
@@ -118,6 +119,7 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
     LiftRules.htmlProperties.default.set((r: Req) =>
       new Html5Properties(r.userAgent))    
 
+      Flot.init
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
   }

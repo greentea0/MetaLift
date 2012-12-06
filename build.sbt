@@ -17,6 +17,7 @@ scalacOptions ++= Seq("-deprecation", "-unchecked")
 libraryDependencies ++= {
   val liftVersion = "2.5-M2"
   Seq(
+    "net.liftweb" % "lift-widgets_2.9.1" % "2.4-M5",
     "net.liftmodules"   %% "widgets"       % "2.5-SNAPSHOT-1.0-SNAPSHOT" % "compile->default",
     "net.liftweb"       %% "lift-webkit"        % liftVersion        % "compile",
     "net.liftweb"       %% "lift-mapper"        % liftVersion        % "compile",
@@ -29,4 +30,3 @@ libraryDependencies ++= {
     "mysql"             % "mysql-connector-java" % "5.1.15"
   )
 }
-
