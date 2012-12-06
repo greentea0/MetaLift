@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-    <title>Home</title>
-
-  </head>
-  <body class="lift:content_id=main">
-    <div id="main" class="lift:surround?with=default;at=content">
-    	<link class="lift:head" rel="stylesheet" href="../indexstyle.css" type="text/css"/>
-      
-     <div>
-			<div class="signIn">
-	           <p>THIS IS THE INDEX PAGE</p>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+		<title>Home</title>
+	</head>
+	<body class="lift:content_id=main">
+		<div id="main" class="lift:surround?with=default;at=content">   
+			<div>        
+				<div class="friends">
+					<div class="title">Friends</div>
+					<hr/>
+					<ul class="lift:comet?type=Friends">
+						<li>Friend 1 </li>
+					</ul>
+				</div>
+				<div class="convos">
+					<div class="title">Conversations</div>
+            		<hr />
+					<form class="lift:comet?type=Conversations lift:form.ajax?">
+						<select class="lift:ChangeTopic" >
+							<option value="0"></option>
+						</select>
+						<input  type="submit" value="Change"/>
+					</form>
+				</div>
 			</div>
-      </div>
-      
-      
-    </div>
-
-  </body>
+		</div>
+	</body>
 </html>
 

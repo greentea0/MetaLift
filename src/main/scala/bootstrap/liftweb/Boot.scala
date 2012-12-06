@@ -11,7 +11,7 @@ import Loc._
 import mapper._
 import code.model._
 import net.liftmodules.JQueryModule
-import net.liftweb.widgets
+import net.liftweb.widgets.menu._
 import net.liftweb.widgets.flot._
 import java.sql.Connection
 import java.sql.DriverManager
@@ -70,10 +70,7 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
 
     // Build SiteMap
       def sitemap = SiteMap(
-    	 Menu.i("Home") / "index" >> loggedIn, // the simple way to declare a menu
-
-       	/*Menu(Loc("Chat", Link(List("chat"), true, "/chat"), 
-         "ChatMine")),*/
+    	 Menu.i("Home") / "index" >> loggedIn, 
     	
          Menu.i("Chat") / "chat" >> loggedIn submenus(
         		 Menu.i("New Conversation") / "newconversation" >> loggedIn,
@@ -95,16 +92,8 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
 		 
 		 Menu.i("Sign In/Sign Up") / "signinsignup" >> Hidden
     )
-        def sitemap2 = SiteMap(
-		   Menu(Loc("menu_top", List("menu", "index"), "Menus"),
-		        Menu(Loc("menu_one", List("menu", "one"), "First Submenu")),
-		        Menu(Loc("menu_two", List("menu", "two"), "Second Submenu (has more)"),
-		         Menu(Loc("menu_two_one", List("menu", "two_one"),  "First (2) Submenu")),
-		         Menu(Loc("menu_two_two", List("menu", "two_two"),  "Second (2) Submenu"))),
-		        Menu(Loc("menu_three", List("menu", "three"), "Third Submenu")),
-		        Menu(Loc("menu_four", List("menu", "four"), "Forth Submenu"))   ) 
-        )
-    
+        
+
     
     //def sitemapMutators = Conversation.sitemapMutator
     def sitemapMutators = User.sitemapMutator
@@ -140,6 +129,7 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
       new Html5Properties(r.userAgent))    
 
       Flot.init
+      MenuWidget.init
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
   }

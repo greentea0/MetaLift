@@ -150,12 +150,6 @@ body
 	font-weight:20;
 	
 }
-ul
-{
-    list-style-type: none;
-    overflow:auto;
-    padding:0px;
-}
 
 hr 
 {
@@ -348,10 +342,3 @@ p
 	margin-bottom: 10px;
 }
 
-/*align the current page name to the right*/
-.span-6 ul li span
-{
-	float:right;
-	margin-top: 5px;
-	margin-right: 5px;
-}
