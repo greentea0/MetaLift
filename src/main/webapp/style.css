@@ -253,8 +253,10 @@ td{
 /*///////////////////////////////////////////////////*/
 .createBox{
 	margin-top: 25px;
-	width: 500px;
-	float: left;
+	margin-right: auto;
+	margin-left:auto;
+	width: 320px;
+	float: center;
 	background-color:rgba(255,255,255,0.5);
 	border-radius:5px;
 	padding-top:4px;

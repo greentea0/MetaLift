@@ -1,0 +1,47 @@
+//css for conversation.html
+
+hr
+{
+	margin:	auto;
+}
+.createBox
+{
+	float: center;
+	width: 320px;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.innerbox
+{
+	width: 300px;
+	height: 170px;
+	margin: auto;
+}
+
+.leftside
+{
+	width: 300px;
+}
+
+.search
+{
+	width: 300px;
+}
+
+.addF
+{
+	width: 300px;
+}
+
+#personName
+{
+	width: 230px;
+}
+
+#inviteName
+{
+	width: 235px;
+}
+
