@@ -65,33 +65,53 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
     LiftRules.addToPackages("code")
 
 	// check if the user is logged in
-	val loggedIn = If(() => User.loggedIn_?,
-      () => RedirectResponse("/user_mgt/login"))
+    
+	val loggedIn = If(User.loggedIn_? _, RedirectResponse("signinsignup"))
 
     // Build SiteMap
-    def sitemap = SiteMap(
-      Menu.i("Home") / "index" >> User.AddUserMenusAfter, // the simple way to declare a menu
+      def sitemap = SiteMap(
+    	 Menu.i("Home") / "index" >> loggedIn, // the simple way to declare a menu
 
        	/*Menu(Loc("Chat", Link(List("chat"), true, "/chat"), 
          "ChatMine")),*/
-         Menu.i("ChatMine") / "chat" >> loggedIn,
-         Menu.i("Conversation") / "conversation" >> loggedIn,
-		 Menu.i("Conver_info") / "conver_info" >> loggedIn >> Hidden,
+    	
+         Menu.i("Chat") / "chat" >> loggedIn submenus(
+        		 Menu.i("New Conversation") / "newconversation" >> loggedIn,
+        		 Menu.i("Change Conversation") / "conversations" >> loggedIn,
+        		 Menu.i("Conver_info") / "conver_info" >> loggedIn >> Hidden),
+		 Menu.i("Friends") / "friends" >> loggedIn submenus(
+			 Menu.i("Add friends") /"CreateFriendRequest" >> loggedIn,
+			 Menu.i("Remove Friend") / "RemoveFriend" >> loggedIn,
+			 Menu.i("Requests") / "AcceptFriendRequest" >> loggedIn),
+			 
+		 Menu.i("Trends") / "trends" >> loggedIn submenus(
+		     Menu.i("Add trend") /"addtrend" >> loggedIn),
 		 
-		 Menu.i("Add friends") /"CreateFriendRequest" >> loggedIn,
-		 Menu.i("Send Request") / "ConfirmCreateFriendRequest" >> loggedIn >> Hidden,
-		 Menu.i("Requestor") / "AcceptFriendRequest" >> loggedIn,		 
-		 Menu.i("Comfirm friendship") / "ConfirmAcceptFriendRequest" >> loggedIn >> Hidden, 
-		 Menu.i("Remove Friend") / "RemoveFriend" >> loggedIn,		 
+		 //Menu.i("Account")  /"account" >> loggedIn >> submenus(User.menus),
+		 
+		 Menu.i("Send Request") / "ConfirmCreateFriendRequest" >> loggedIn >> Hidden, 
+		 Menu.i("Comfirm friendship") / "ConfirmAcceptFriendRequest" >> loggedIn >> Hidden,		 
 		 Menu.i("Friend removed") / "RemoveFriendConfirmation" >> loggedIn >> Hidden,
-		 Menu.i("Trends") / "trends" >> loggedIn
 		 
+		 Menu.i("Sign In/Sign Up") / "signinsignup" >> Hidden
     )
+        def sitemap2 = SiteMap(
+		   Menu(Loc("menu_top", List("menu", "index"), "Menus"),
+		        Menu(Loc("menu_one", List("menu", "one"), "First Submenu")),
+		        Menu(Loc("menu_two", List("menu", "two"), "Second Submenu (has more)"),
+		         Menu(Loc("menu_two_one", List("menu", "two_one"),  "First (2) Submenu")),
+		         Menu(Loc("menu_two_two", List("menu", "two_two"),  "Second (2) Submenu"))),
+		        Menu(Loc("menu_three", List("menu", "three"), "Third Submenu")),
+		        Menu(Loc("menu_four", List("menu", "four"), "Forth Submenu"))   ) 
+        )
+    
+    
+    //def sitemapMutators = Conversation.sitemapMutator
     def sitemapMutators = User.sitemapMutator
 
     // set the sitemap.  Note if you don't want access control for
     // each page, just comment this line out.
-    LiftRules.setSiteMapFunc(() => sitemapMutators(sitemap))
+    LiftRules.setSiteMapFunc(() => sitemapMutators(sitemap)) //sitemapMutators()
 
     //Init the jQuery module, see http://liftweb.net/jquery for more information.
     LiftRules.jsArtifacts = JQueryArtifacts

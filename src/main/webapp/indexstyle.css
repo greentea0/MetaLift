@@ -8,3 +8,28 @@ body
 	width: 1680px;
 	height: 1050px;
 }
+
+.signIn
+{
+	background-color:rgba(255,255,255,0.5);
+	margin-top: 25px;
+	margin-right:4px;
+	margin:left:auto;
+	margin:right:auto;
+	border-radius: 5px;
+    width: 250px;
+    min-width: 275px;
+    padding:4px;
+}
+
+.signUp{
+	background-color:rgba(255,255,255,0.5);
+	margin-top: 25px;
+	margin-right:4px;
+	margin:left:auto;
+	margin:right:auto;
+	border-radius: 5px;
+    width: 250px;
+    min-width: 250px;
+    padding:4px;
+}
