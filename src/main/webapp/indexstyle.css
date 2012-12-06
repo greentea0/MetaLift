@@ -9,6 +9,11 @@ body
 	height: 1050px;
 }
 
+.sf-menu
+{
+	display:none;
+}
+
 .signIn
 {
 	background-color:rgba(255,255,255,0.5);
@@ -17,7 +22,7 @@ body
 	margin:left:auto;
 	margin:right:auto;
 	border-radius: 5px;
-    width: 250px;
+    width: 275px;
     min-width: 275px;
     padding:4px;
 }
@@ -29,7 +34,7 @@ body
 	margin:left:auto;
 	margin:right:auto;
 	border-radius: 5px;
-    width: 250px;
-    min-width: 250px;
+    width: 275px;
+    min-width: 275px;
     padding:4px;
 }

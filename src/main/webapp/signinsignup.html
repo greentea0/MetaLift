@@ -10,20 +10,7 @@
      		<link class="lift:head" rel="stylesheet" href="../indexstyle.css" type="text/css"/>
 			
 			<div class="signIn">
-	            <form action="/user_mgt/login" method="post">
-	            Already have an account? | Sign In!<br>
-	            <hr>
-					<input name="username" value="Email Address"
-					onfocus="if(this.value==this.defaultValue)this.value=''" 
-					onblur="if(this.value=='')this.value=this.defaultValue"/><br>
-	
-					<input name="password" type="password"
-					onfocus="if(this.value==this.defaultValue)this.value=''" 
-					onblur="if(this.value=='')this.value=this.defaultValue"/><br>
-	
-					<a href="/user_mgt/lost_password">Forgot Password?</a>
-					<input type="submit" value="Sign In">
-				</form>
+				<form class="lift:SignIn" id="signup"></form>
 			</div>
 			
 			<div class="signUp">

@@ -150,12 +150,6 @@ body
 	font-weight:20;
 	
 }
-ul
-{
-    list-style-type: none;
-    overflow:auto;
-    padding:0px;
-}
 
 hr 
 {
@@ -173,7 +167,7 @@ hr
 
 
 /*banner*/
-.sidebar 
+.sidebarMetaLift
 {
 	padding:0;
 	margin-top:0px;
@@ -185,11 +179,19 @@ hr
 	width:100%;
 	background-color:#383B36;
 }
-.sidebar li 
+.sidebarMetaLift li 
 {
 	display:inline;
 }
-.sidebar li a
+
+.sidebarMetaLift ul
+{
+    list-style-type: none;
+    overflow:auto;
+    padding:0px;
+}
+
+.sidebarMetaLift li a
 {
 	padding:0.2em 1em;
 	color:white;
@@ -197,7 +199,7 @@ hr
 	float:left;
 	border:1px solid #000;
 }
-.sidebar li a:hover
+.sidebarMetaLift li a:hover
 {
 	background:#08c;
 	color:#fff;

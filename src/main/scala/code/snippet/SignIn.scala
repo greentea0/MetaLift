@@ -3,6 +3,6 @@ package snippet
 import net.liftweb._
 import code.model._
 
-object SignIn {
-	def render = User.login
+object SignUp {
+	def render = User.signup
 }
