@@ -17,7 +17,7 @@ object User extends User with MetaMegaProtoUser[User] {
 			       <lift:bind /></lift:surround>)
   // define the order fields will appear in forms and output
   override def fieldOrder = List(id, firstName, lastName, email, password, nickname, textArea)
-
+  override def signupFields = super.signupFields.filter(_ != locale).filter(_ !=timezone)
   // comment this line out to require email validations
   override def skipEmailValidation = true
 
@@ -49,5 +49,6 @@ class User extends MegaProtoUser[User] with ManyToMany {
     override def textareaCols = 50
     override def displayName = "Personal Essay"
   }
+  
 }
 

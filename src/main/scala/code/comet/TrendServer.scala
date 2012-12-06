@@ -33,7 +33,6 @@ object TrendServer extends LiftActor {
         */
        if (!stopped){	
            createTrends
-           println("finished!")
            Schedule.schedule(this, DoIt, 20 seconds)// currently runs every 20 seconds
            //10 minutes - 
        }

@@ -29,4 +29,3 @@ libraryDependencies ++= {
     "mysql"             % "mysql-connector-java" % "5.1.15"
   )
 }
-
