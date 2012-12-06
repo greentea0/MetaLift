@@ -11,10 +11,13 @@ import Loc._
 import mapper._
 import code.model._
 import net.liftmodules.JQueryModule
-import net.liftweb.widgets
+import net.liftweb.widgets._
 import java.sql.Connection
 import java.sql.DriverManager
 import code.comet.TrendServer
+import net.liftweb.widgets.flot._
+
+
 
 object DBVendor extends ConnectionManager with Logger {
   def newConnection(name: ConnectionIdentifier): Box[Connection] = {
@@ -63,6 +66,9 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
     // where to search snippet
     LiftRules.addToPackages("code")
 
+    // implements flot
+    Flot.init
+    
 	// check if the user is logged in
 	val loggedIn = If(() => User.loggedIn_?,
       () => RedirectResponse("/index"))
@@ -83,8 +89,8 @@ Schemifier.schemify(true, Schemifier.infoF _, User, Conversation, Friendship, In
 		 Menu.i("Comfirm friendship") / "ConfirmAcceptFriendRequest" >> loggedIn >> Hidden, 
 		 Menu.i("Remove Friend") / "RemoveFriend" >> loggedIn,		 
 		 Menu.i("Friend removed") / "RemoveFriendConfirmation" >> loggedIn >> Hidden,
-		 Menu.i("Trends") / "trends" >> loggedIn
-		 
+		 Menu.i("Trends") / "trends" >> loggedIn,
+		 Menu.i("Trends Graph") / "trendGraph"
     )
     def sitemapMutators = User.sitemapMutator
 
