@@ -7,7 +7,11 @@
   </head>
   <body class="lift:content_id=main">
     <div id="main" class="lift:surround?with=default;at=content">
-      
+     <div class="lift:comet?type=CurrentTrends">
+				<ul class="trendlist">
+					<li>A User</li>			
+				</ul>
+	 </div>
      <div class="chatbox">
       
      <!-- the behavior of the div -->
@@ -23,16 +27,15 @@
 			        	<li class="clearable">A third message</li>
 			        </ul>
 			    </div>
-		       	
-		       	<div>
+		       
+	       	</div>
+	       	<div>
 		          <form class="lift:form.ajax?class=chatinput">
 		            <input class="lift:ChatIn chatinputfield" id="chat_in"/>
 		           
 		             <input type="submit" value="Send"/>
 		          </form>
-	        	</div>
-	        	
-	       	</div>
+	        </div>
 	      </div>
       </div>
       
@@ -41,26 +44,21 @@
 		<div class="friends">
           <div class="title">Friends</div>
           <hr />
-          <ul class="friendslist">
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
-            <li>hello world list item </li>
+          <ul class="lift:comet?type=Friends">
+            <li>Friend 1 </li>
           </ul>
         </div>
         
 		<div class="convos">
             <div class="title">Conversations</div>
             <hr />
-	        <div class="lift:comet?type=Conversations">
-	        
-				<ul class="convolist">
-					<li>A Conversation1</li>
-	                <li class="clearable">Convo 2</li>
-	                <li class="clearable">Convo 3</li>
-				</ul>
+	        <div>
+				<form class="lift:comet?type=Conversations lift:form.ajax?">
+					<select class="lift:ChangeTopic" >
+						 <option value="0"></option>
+					</select>
+					<input  type="submit" value="Change"/>
+				</form>
 	       	</div>
 		</div>
 

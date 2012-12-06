@@ -16,27 +16,22 @@ import net.liftweb.http.js.JE
  * by this component.  When the component changes on the server
  * the changes are automatically reflected in the browser.
  */
-class Conversations extends CometActor with CometListener {
-  private var conversations: List[Conversation] = User.currentUser.get.conversations.toList // private state
+class Friends extends CometActor with CometListener {
+  private var friends: List[User] = User.currentUser.get.friends.toList // private state
 
   
-  def registerWith = ConvoServer
+  def registerWith = FriendServer
 
   
   override def lowPriority = {
-      case -1L => {
+      case s: String => {
           // grab all the conversations for the current user for their current conversation
-		  conversations = User.currentUser.get.conversations.toList
+		  friends = User.currentUser.get.friends.toList
 	      // put those conversations into the convo list window
 	      reRender()
-      }case l: Long => {
-         var currUser = User.currentUser.get
-    	  currUser.currentConversation(l)
-    	  currUser.save
-        reRender()
       }
       
   }
 
-  def render = " option " #> conversations.map{ c => " option * " #> (c.topic.get) & "* [value]" #> c.id}
+  def render = " li * " #> friends.map{ user => (user.firstName.get + " "  + user.lastName.get) }
 }

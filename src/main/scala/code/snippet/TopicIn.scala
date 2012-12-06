@@ -6,12 +6,11 @@ import js._
 import JsCmds._
 import JE._
 import comet.ConvoServer
-import code.model.History
-import code.model.Conversation
+import code.model._
 import java.util.Calendar
-
-
 import code.model.User
+import code.comet.ConfirmedFriendsForConversation
+
 
 /*
  * A snippet that will create a conversation with selected users and topic entered
@@ -27,16 +26,40 @@ object TopicIn {
    * to the ChatServer and then returns JavaScript which
    * clears the input.
 */
-  def render = SHtml.onSubmit(topic => {
-        
-     if (!topic.trim.isEmpty()){ 
+
+  private def createConversation(topic: String) = {
+
 		  var newConvo: Conversation =  Conversation.create
+
 		  newConvo.topic(topic.trim())
 		  newConvo.startedBy(User.currentUser)
 		  newConvo.startedAt(Calendar.getInstance().getTime())
+		  newConvo.participants += User.currentUser.get
+
 		  newConvo.save
+		  
+		  newConvo
+		 
+  }
+  
+  private def addParticipants(convo: Conversation, users: List[User]) = {
+    	  users.foreach(user => convo.participants += user)
+		  convo.save
+  }
+  
+  private def changeConversation(id: Long) = {
+    ConvoServer ! id
+  }
+  
+  def render = SHtml.onSubmit(topic => {
+     var usersToAdd: List[User] = ConfirmedFriendsForConversation.l
+     
+     if (!topic.trim.isEmpty()){ 
+		  var conversation: Conversation =  createConversation(topic)
+		  addParticipants(conversation, usersToAdd)
      }
-     ConvoServer ! topic
+     
+     ConvoServer ! -1L
      
 	 SetValById("topic_in", "")
   })

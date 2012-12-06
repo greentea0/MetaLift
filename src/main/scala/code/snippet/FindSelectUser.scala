@@ -23,9 +23,9 @@ class FindSelectUser {
 		 		
 		 bind("ajax", xhtml,
          "search" -> AutoComplete( "", buildQuery _, selection => processResult(selection)),
-         "submit" -> submit(?("Add"), () =>  {S.notice("Added User: " + someuser)})
+         "submit" -> submit(?("Add"), () => {S.notice("Added User: " + someuser)})
          )
-                             //redirectTo("/")
+                            // redirectTo("/")
   }
 	  
   private def findUsersBy(name: String): List[User] = User.findAll(Like( User.firstName, (name + "%")))

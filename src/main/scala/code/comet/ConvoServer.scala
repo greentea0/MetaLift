@@ -9,21 +9,13 @@ import actor._
  * message will be processed at once.
  */
 object ConvoServer extends LiftActor with ListenerManager {
-  private var topic = "" // private state
-  /**
-   * When we update the listeners, what message do we send?
-   * We send the msgs, which is an immutable data structure,
-   * so it can be shared with lots of threads without any
-   * danger or locking.
-   */
-  def createUpdate = topic
-  /**
-   * process messages that are sent to the Actor.  In
-   * this case, we're looking for Strings that are sent
-   * to the ChatServer.  We append them to our Vector of
-   * messages, and then update all the listeners.
-   */
+  private var upd = -1L // private state
+
+  
+  def createUpdate = upd
+
+
   override def lowPriority = {
-    case s: String => topic = s; updateListeners()
+    case l: Long => upd = l; updateListeners()
   }
 }

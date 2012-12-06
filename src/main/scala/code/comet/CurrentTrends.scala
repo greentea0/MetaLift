@@ -16,8 +16,8 @@ import net.liftweb.http.js.JE
  * by this component.  When the component changes on the server
  * the changes are automatically reflected in the browser.
  */
-class Chat extends CometActor with CometListener {
-  private var msgs: List[String] = List() // private state
+class CurrentTrends extends CometActor with CometListener {
+  private var trends: List[String] = List() // private state
   /**
    * When the component is instantiated, register as
    * a listener with the ChatServer
@@ -31,36 +31,26 @@ class Chat extends CometActor with CometListener {
    * cause changes to be sent to the browser.
    */
   override def lowPriority = {
-  	case s: String => {
-	          // grab all the messages for the current user for their current conversation
-  		try {
-  		    val convoId = User.currentUser.get.currentConversation.get
-  		    val conversation: Conversation = Conversation.findByKey(convoId).get
-  			val messages: List[Message] = conversation.messages.toList
-		    
-		      
-		          // put those messages into the chat window
-		    msgs = messages.map(( m : Message ) =>
-		    	m.sender.obj.get.firstName.get  
-		        +" " + 
-		        m.sender.obj.get.lastName.get
-		        +" : "+
-		        m.payload.get)
-		} catch  {
-			case nsee : NoSuchElementException => println("No such element : "+nsee.getMessage());
-		}
-	}
-   
-    
+  	case s: String => 
+	 
+  	val tempTrends = Trend.findAll(By( Trend.user, User.currentUser)
+  	    , By(Trend.reportType, TrendServer.HOURLY)
+  	    , OrderBy(Trend.occurrence, Descending))
+  //	 val tempTrends = Trend.findAll(By( Trend.user, User.currentUser),
+ // 	     OrderBy(Trend.occurrence, Descending)).
+  	      println( "This is temp Trends "+ tempTrends)
+	 trends = tempTrends.map( ( t : Trend ) => TrendWord.find( By ( TrendWord.id, t.word)).get.word.get)
+	println(trends)
 	reRender()
-    
+   
   }
   /**s
    * Put the messages in the li elements and clear
    * any elements that have the clearable class.
    */
   def render = {
-    "li *" #> msgs & ClearClearable
+    println("printing the trends "+trends)
+    "li *" #> trends & ClearClearable
 
     }
 }
