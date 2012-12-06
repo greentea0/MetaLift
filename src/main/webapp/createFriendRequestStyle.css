@@ -1,0 +1,42 @@
+//css for CreateFriendRequest.html
+
+hr
+{
+	margin:	auto;
+}
+.createBox
+{
+	float: center;
+	width: 320px;
+	height: 190px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.innerBox
+{
+	width: 300px;
+	height: 180px;
+	margin: auto;
+}
+
+.search
+{
+	width: 300px;
+}
+
+.addF
+{
+	width: 300px;
+}
+
+#personName
+{
+	width: 230px;
+}
+
+#inviteName
+{
+	width: 235px;
+}
+

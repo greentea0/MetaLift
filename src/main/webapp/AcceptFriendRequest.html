@@ -7,7 +7,7 @@
   <body class="lift:content_id=main">
   
     <div id="main" class="lift:surround?with=default;at=content">
-
+		<link class="lift:head" rel="stylesheet" href="../acceptFriendRequestStyle.css" type="text/css"/>
 		<div class="createBox">
 			<div class="innerBox">
 				<div class="title">Confirm a friendship</div>
@@ -15,7 +15,7 @@
 					
 					<div class="acceptF">
 						<form action="ConfirmAcceptFriendRequest.html" class="lift:FriendsToAccept">
-							<select class="lift:FriendAcceptSubmit" multiple="multiple">
+							<select class="lift:FriendAcceptSubmit" multiple="multiple" id="confirm">
 								  <option value="f1">f1</option>
 							</select>
 							<input  id="button" type="submit" value="Confirm" />

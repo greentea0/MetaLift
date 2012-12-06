@@ -150,6 +150,12 @@ body
 	font-weight:20;
 	
 }
+ul
+{
+    list-style-type: none;
+    overflow:auto;
+    padding:0px;
+}
 
 hr 
 {
@@ -247,8 +253,10 @@ td{
 /*///////////////////////////////////////////////////*/
 .createBox{
 	margin-top: 25px;
-	width: 500px;
-	float: left;
+	margin-right: auto;
+	margin-left:auto;
+	width: 320px;
+	float: center;
 	background-color:rgba(255,255,255,0.5);
 	border-radius:5px;
 	padding-top:4px;
@@ -342,3 +350,10 @@ p
 	margin-bottom: 10px;
 }
 
+/*align the current page name to the right*/
+.span-6 ul li span
+{
+	float:right;
+	margin-top: 5px;
+	margin-right: 5px;
+}

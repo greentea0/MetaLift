@@ -1,0 +1,27 @@
+//css for RemoveFriend.html
+
+.createBox
+{
+	float: center;
+	width: 260px;
+	height: 130px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.innerbox
+{
+	width: 240px;
+	height: 120px;
+	margin: auto;
+}
+
+#search
+{
+	width: 175px;
+}
+
+#remove
+{
+	width: 175px;
+}
